@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Perl常用编译指令]]></title>
+    <url>%2Fblog%2F2018%2F05%2F09%2FPerl%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[ttt]]></title>
+    <url>%2Fblog%2F2018%2F05%2F03%2Fttt%2F</url>
+    <content type="text"><![CDATA[斯蒂芬归还 content [author[source]] [link] [source_link_title] [title] [] [url] [link text]1code snippet 普通的代码块 1alert(&apos;Hello World!&apos;); alert(‘Hello World!’); 指定语言 1[rectangle setX: 10 y: 10 width: 20 height: 20]; [rectangle setX: 10 y: 10 width: 20 height: 20]; 附加说明 Array.map1array.map(callback[, thisArg]) Array.map array.map(callback[, thisArg])]]></content>
+      <categories>
+        <category>love</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[testtest]]></title>
+    <url>%2Fblog%2F2018%2F05%2F03%2Ftesttest%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2Fblog%2F2018%2F05%2F02%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>link</category>
+        <category>wwww</category>
+      </categories>
+      <tags>
+        <tag>journal</tag>
+        <tag>think</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Make-Blog]]></title>
+    <url>%2Fblog%2F2017%2F08%2F19%2FMake-Blog%2F</url>
+    <content type="text"><![CDATA[1. 先安装 nodejs 和 git 下载hexo123$ mkdir hexo #创建一个文件夹$ cd hexo$ npm install -g hexo-cli 2. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 本地 查看页面12$ hexo generate$ hexo server 3. 创建github账号，新建库，名为: usename.github.io;下载部署工具hexo-deployer-git12$ npm install hexo-deployer-git --save$ hexo deploy 4. 可以绑定个人域名，可到 DNSPOD 设置DNS解析]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[简介Hexo]]></title>
+    <url>%2Fblog%2F2017%2F08%2F18%2F%E7%AE%80%E4%BB%8BHexo%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
