@@ -1,0 +1,85 @@
+
+========>
+========> Coffee Sample Application 
+========>
+
+(Coffee2.vbp, CoffWat2.vbp, MTCoffee.vbp, XTimers.vbp)
+
+注意: 从编辑菜单中选择自动换行使查看更加方便。
+ 
+Coffee 包含一个客户， CoffWat2, 和两个 ActiveX 部件 (OLE servers), Coffee2 和 MTCoffee。 这三个工程演示程序被放在一起:
+
+? 异步通知使用的事件 (Coffee2).
+? 异步通知使用的回呼方法 (Coffee2).
+? 多线程 (MTCoffee).
+
+XTimers.vbp 是一个辅助工程它提供了 Coffee2 和 MTCoffee 使用的代码计时器。
+
+这个程序是第三章创建 ActiveX 部件中的“创建 ActiveX 执行部件”的步进过程的扩展的工程开发版本。欲了解有关异步通知及多线程的详细情况，请参阅第八章“生成代码部件”。
+
+文件	        描述
+
+CoffWat2.vbp	CoffeeWatch 客户端工程。
+CWMod1.bas	工程的启动代码。
+CWForm1.frm	客户端主窗体。
+ICoffNot.cls	用于回调方法的 ICoffeeNotify 界面。
+CWNotMe.cls	NotifyMe 对象用于实现 ICoffeeNotify 界面, 以至它可以收到回调。
+CWThread.frm	演示多线程的客户端窗体。
+CWCofTrk.cls	CoffeeTracker 对象用于等待来自于多线程的 Coffee 对象的完成事件。
+
+Coffee2.vbp	Coffee2 部件工程。
+Co2Cmon.cls	CoffeeMonitor 类用于演示异步通知使用的事件。
+Co2Conn.cls	Connector 类让多客户共享 CoffeeMonitor 对象。
+Co2CMon2.cls	CoffeeMonitor2 类用于演示异步通知使用的回调方法。
+Co2Conn2.cls	Connector2 类使多客户共享 CoffeeMonitor2 对象。
+Co2Mod1.bas	保持对共享的 CoffeeMonitor 及 CoffeeMonitor2 对象的引用。
+
+MTCoffee.vbp	MTCoffee 部件工程。
+MTCoffee.cls	多线程的 Coffee 对象。
+MTCMod1.bas	用于演示全局变量实例的标准模块。
+
+XTimers.vbp	回调计时器工程。
+XTimer.cls	XTimer 工程。
+XTimerS.bas	XTimer 的支持模块。
+AboutCof.txt	此文档。
+
+运行方法
+
+虽然这里没有大量代码，但它是一个复杂的运行示例。因为它演示的是进程外部件。为了调试它，进程外部件必须运行于不同的 Visual Basic 副本。
+
+另外, 由于此示例所演示的特性 (多线程和代码计时器) 使它在开发环境中演示或运行都具有危险性。
+
+1. 加载 XTimers.vbp 到 Visual Basic。在文件菜单中, 选择 “生成 XTimers.dll”将工程生成为一个 .dll 文件。
+
+特别注意:  此时不要在开发环境中运行 XTimers 。XTimers 必须被编译因为它使用 Windows API 作为代码计时器对象。
+
+2. 加载 MTCoffee 到 Visual Basic。在工程菜单上，通过打开引用对话框选择引用。选择 XTimers 并且单击“确定”，来设置到编译的 DLL 的引用。
+
+3. 在文件菜单中，选择“生成 MTCoffee.exe”来生成工程文件的可执行文件。
+
+重要信息: 此时不要在开发环境中运行 MTCoffee 。您需要生成工程的可执行文件因为 开发环境不支持多个操作的线程；如果您运行 MTCoffee 在 Visual Basic 中，多线程行为不能被显示。
+
+4. 加载 Coffee2.vbp 到 Visual Basic。在工程菜单中，选择“引用”打开引用对话框。选择 XTimers 并且单击“确定”，来设置引用到编译的 DLL。
+
+5. 按 CRTL+F5 来运行 Coffee2 工程。
+
+在运行一个进程外部件工程时，使用 CRTL+F5 代替 F5 ，确保在支持的对象部件到客户之前，所有的编译错误都以被捕获。(参阅联机电子图书中的"创建一个 ActiveX Exe 部件，"。)
+
+6. 启动另一个 Visual Basic 实例，并且加载 CoffWat2.vbp。在工程菜单中，选择引用来打开引用对话框。选择 Coffee2 和 MTCoffee，并且单击“确定”，来设置引用到运行的 Coffee2 工程和编译的 MTCoffee.EXE 。
+
+7. 按 F5 来运行工程。
+ 
+在运行事例应用程序后，当它分配独立的线程为每个 Coffee 对象观察 MTCoffee 的行为，您可以发现在更改此线程到环绕线程缓冲池之后重新编译 MTCoffee 是很有意义的。(您可以在工程属性对话框的通用选项栏的执行无界面对话框中找到这个选项。) 当使用一个环绕的线程缓冲池时，您可以发现在相同线程上对象间的块及全局数据共享。
+
+您也可以编译 Coffee2.exe 和 CoffWat2.exe，并且在多个客户上运行来观察异步通知对象 CoffeeMonitor 和 CoffeeMonitor2的共享。
+
+对于多个客户端，环绕线程缓冲池意味着不同客户使用的 Coffee 对象间的块及数据共享。
+
+要了解这个事例的执行情况，参阅联机电子图书中的创建 ActiveX 部件中的"生成代码部件，"部分。
+
+要添加像这样的文档到 Visual Basic 工程，选中添加文件对话框上的"添加为相关文档" 的复选框。
+
+
+
+
+
