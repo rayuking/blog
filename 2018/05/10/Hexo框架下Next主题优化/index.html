@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://zerolei.com/blog/2018/05/10/Hexo框架下Next主题优化/new-page-foot.png">
 <meta property="og:image" content="http://zerolei.com/blog/2018/05/10/Hexo框架下Next主题优化/before_clean_full_save.png">
 <meta property="og:image" content="http://zerolei.com/blog/2018/05/10/Hexo框架下Next主题优化/clean_full_save.png">
-<meta property="og:updated_time" content="2018-05-11T17:02:40.982Z">
+<meta property="og:updated_time" content="2018-05-13T10:05:38.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo框架下Next主题优化">
 <meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;wangwlj已经总结的很好了  Hexo搭建的GitHub博客之优化大全 , 这里就切换中文,更改页脚,添加支持HTTPS补充三点 0x00 更改Next主题默认语言为中文,并不是常见的zh-CN在文件themes\next\_config.yml中 language: zh-Hans 0x01 更改页脚原页脚:">
@@ -107,7 +107,7 @@
     root: '/blog/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -132,7 +132,16 @@
 
 
 
-
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
   <title>Hexo框架下Next主题优化 | Blog</title>
   
 
@@ -152,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -326,10 +335,6 @@
 
         <div class="post-meta">
 		  
-			<i class="fa fa-thumb-tack"></i>
-			<font color=7D26CD>置顶</font>
-			<span class="post-meta-divider">|</span>
-		  
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -493,6 +498,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/blog/2018/05/13/特殊的日子/" rel="prev" title="特殊的日子">
+                特殊的日子 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -572,7 +581,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -594,7 +603,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -684,12 +693,12 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">688</span>
+    <span title="Site words total count">731</span>
   
 </div>
 
 
-  <div class="powered-by">个人网站 <a class="theme-link" target="_blank" href="http://zerolei.com">Z</a></div>
+  <div class="powered-by">个人网站 <a class="theme-link" target="_blank" href="https://zerolei.com">Z</a></div>
 
 
 
@@ -697,7 +706,7 @@
 
 
 
-  <div class="theme-info">时间轴 &mdash; <a class="theme-link" target="_blank" href="http://zerolei.com"">T</a></div>
+  <div class="theme-info">时间轴 &mdash; <a class="theme-link" target="_blank" href="https://zerolei.com"">T</a></div>
 
 
 
