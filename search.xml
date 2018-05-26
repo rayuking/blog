@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[win7下安装Centos7实现双系统]]></title>
+    <url>%2Fblog%2F2018%2F05%2F26%2Fwin7%E4%B8%8B%E5%AE%89%E8%A3%85Centos7%E5%AE%9E%E7%8E%B0%E5%8F%8C%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别准备 ● 笔记本（win7系统） ● 比安装包容量更大的U盘 ● 预先准备软件：软碟通 ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.注意:为双系统划分free space时不需要“添加简单卷” 二：制作U盘系统盘。具体如下：1.插入U盘，打开软碟通，打开-选择下好的系统iso文件-启动-写入硬盘映像2.然后如下图所示，“硬盘驱动器”选择你U盘所在的驱动器（比如我的是j盘），“写入方式”选择“USB-HDD+”3.接着单击“格式化”，按默认即可（一般默认文件系统位FAT32）4.紧跟着便捷启动，选择syslinux5.最后单击“写入” In the end它会显示你写入成功！ 三：进入Bios界面,设置启动首选项为U盘1.插入U盘，重启笔记本，启动时按F2，进入Bios界面2.在Boot项里选择USB 为首选项3.保存设置并离开。 一路默认安装会出现dracut:/# 因为centos安装引导工具抓不到U盘 四.用U盘安装centOS7系统出现dracut:/#的2种解决方法 ● A.安装出现这一步的时候，在dracut:/# 输入 cd /dev 回车 然后输入ls ,查看U盘设备名称，一般sdb后面带数字的就是U盘，这里一般是最后一个, 例如sdb5为我的U盘重启电脑，重新进入到安装界面，按tab键会出现安装引导vmlinuz initrd.img inst.stage2=hd:LABEL=centOS\x207\x20x86_64 rd.live.check quiet把这段改成vmlinuz initrd.img inst.stage2=hd:/dev/sdb4 quiet 回车 然后就开始安装系统了 ● B 把设备LABEL改为和安装引导工具的默认设定一致. 先把U盘名字改为CENTOS再设定inst.stage2=hd:LABEL=CENTOS ==&gt;接着开始安装软件和系统了。。。（这里我选了自动分区会覆盖掉windows的MBR引导程序,,导致后面无法识别windows分区） ==&gt;安装成功，重启！拔出U盘!!!（注意：不然之前设置的usb为首启动项导致重启时会再次出现安装界面！） 五.解决CentOS7 安装后无法识别windows分区问题需要为Windows添加Grub引导1.手动编辑文件 vi /boot/grub2/grub.cfg 2 . 找到 ### END /etc/grub.d/10_linux ### 这一行 （注意是在此行上面添加）3 .在这一行的上面添加如下内容： menuentry “Windows 7 (loader) (on /dev/sda1)” { #引号中间为自定义内容，该内容会出现在启动项选择里面。 insmod ntfs set root=(hd0,1) # （hd0,1)第一块盘的第一个分区，即C盘。 chainloader +1 }添加过之后，保存。 init 6 重启系统,如下图所示,windows系统可选。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>operations</tag>
+        <tag>grub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[利用Vagrant工具制作一个vagrant-box]]></title>
     <url>%2Fblog%2F2018%2F05%2F19%2F%E5%88%A9%E7%94%A8Vagrant%E5%B7%A5%E5%85%B7%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AAvagrant-box%2F</url>
     <content type="text"><![CDATA[利用Vagrant工具制作一个vagrant box 简介及缘由&#160;&#160;&#160;&#160;&#160;&#160;&#160;vagrant是个虚拟机管理器,可以安装在Windows, linux, mac等多平台.它主要做这样几件事: 1, 将虚拟机打包成box; 2, 将box分发; 3, 第三者获取box, 解压获得虚拟机. 它解决的主要痛点是, 如何为团队成员搭建相同的开发环境, 以解决软件运行依赖问题. &#160;&#160;&#160;&#160;&#160;&#160;&#160;虽然在http://www.vagrantbox.es/有许多公共的base boxes可供下载和使用,虽然, 官方教程是让你从网上下载制作好的box, 但网速堪忧, 以及信任问题, 对我而言,主要是想把我安装了一些软件及配置过的centos7，制作成一个vagrant box 查看帮助vagrant box &lt;subcommand&gt; -h 前置条件安装VirtualBox 安装Vagrant 在VirtualBox中安装操作系统，例如 CentOS7 将操作系统打包为可用的Vbox镜像创建vagrant用户和用户目录，密码为vagrant,设置vagrant用户加入sudoers, 可在/etc/sudoers文件中写入vagrant ALL=(ALL) ALL 添加vagrant用户的公共密钥: 在真实操作系统中执行vagrant package –base 虚拟机名称，这样会创建指定虚拟机的box vagrant package --base centos1_1 --output E:\porgram2\Virtual_Box\myowncentos.box 将制作好的Box添加到Vagrant环境中，vagrant box add package.box –name 虚拟机标识名 vagrant box add E:/porgram2/Virtual_Box/myowncentos.box --name 2centos 初始化运行环境,vagrant init 虚拟机标识名 运行Vagrant虚拟机，vagrant up 就启动上面这台虚拟机,而且可在virtualbox看到,注意vagrant默认的虚拟机网络设置: 部分参考配置虚拟机 遇到的问题1.vagrant版本跟不上virtualbox版本,下载最新版vagrant 2.未添加公钥:新建目录,网络下载vagrant公钥12345mkdir -p /home/vagrant/.sshtouch /home/vagrant/.ssh/authorized_keyswget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O /home/vagrant/.ssh/authorized_keys 3.虚拟机增强包guest additions package在centos7上安装不上,因为kernel-devel和Linux内核版本不一致可以使用下面两个命令 安装和Linux内核版本匹配的kernel-devel 和 kernel-headers sudo yum install -y &quot;kernel-devel-$(uname -r)&quot;yum install -y &quot;kernel-headers-$(uname -r)&quot; 4.虚拟ip未写入ip别名的配置文件(待下一篇:使用vagrant部署开发环境)]]></content>

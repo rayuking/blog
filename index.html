@@ -307,6 +307,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerolei.com/blog/blog/2018/05/26/win7下安装Centos7实现双系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zero lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/iAndBike.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2018/05/26/win7下安装Centos7实现双系统/" itemprop="url">win7下安装Centos7实现双系统</a></h1>
+        
+
+        <div class="post-meta">
+		  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T22:01:02+08:00">
+                2018-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  742
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><center><strong>解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别</strong></center><br>准备<br>  ● 笔记本（win7系统）<br>  ● 比安装包容量更大的U盘<br>  ● 预先准备软件：软碟通<br>  ● Centos7系统（iso镜像文件）</p>
+<h3 id="一：进行磁盘分割"><a href="#一：进行磁盘分割" class="headerlink" title="一：进行磁盘分割"></a>一：进行磁盘分割</h3><p>打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.<br>注意:为双系统划分free space时不需要“添加简单卷”</p>
+<h3 id="二：制作U盘系统盘。具体如下："><a href="#二：制作U盘系统盘。具体如下：" class="headerlink" title="二：制作U盘系统盘。具体如下："></a>二：制作U盘系统盘。具体如下：</h3><p>1.插入U盘，打开软碟通，打开-选择下好的系统iso文件-启动-写入硬盘映像<br>2.然后如下图所示，“硬盘驱动器”选择你U盘所在的驱动器（比如我的是j盘），“写入方式”选择“USB-HDD+”<br>3.接着单击“格式化”，按默认即可（一般默认文件系统位FAT32）<br>4.紧跟着便捷启动，选择syslinux<br>5.最后单击“写入”<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/2018/05/26/win7下安装Centos7实现双系统/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://zerolei.com/blog/blog/2018/05/19/利用Vagrant工具制作一个vagrant-box/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1520,7 +1688,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1531,7 +1699,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1542,7 +1710,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1634,7 +1802,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.5k</span>
+    <span title="Site words total count">2.2k</span>
   
 </div>
 
