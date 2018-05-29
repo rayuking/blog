@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  742
+                  766
                 </span>
               
 
@@ -419,7 +419,7 @@
 
       
         
-          <p><center><strong>解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别</strong></center><br>准备<br>  ● 笔记本（win7系统）<br>  ● 比安装包容量更大的U盘<br>  ● 预先准备软件：软碟通<br>  ● Centos7系统（iso镜像文件）</p>
+          <p><center><strong>解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别</strong></center><br>背景:前段时间朋友想玩玩Linux,于是给他电脑弄了个双系统.<br>准备:<br>  ● 笔记本（win7系统）<br>  ● 比安装包容量更大的U盘<br>  ● 预先准备软件：软碟通<br>  ● Centos7系统（iso镜像文件）</p>
 <h3 id="一：进行磁盘分割"><a href="#一：进行磁盘分割" class="headerlink" title="一：进行磁盘分割"></a>一：进行磁盘分割</h3><p>打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.<br>注意:为双系统划分free space时不需要“添加简单卷”</p>
 <h3 id="二：制作U盘系统盘。具体如下："><a href="#二：制作U盘系统盘。具体如下：" class="headerlink" title="二：制作U盘系统盘。具体如下："></a>二：制作U盘系统盘。具体如下：</h3><p>1.插入U盘，打开软碟通，打开-选择下好的系统iso文件-启动-写入硬盘映像<br>2.然后如下图所示，“硬盘驱动器”选择你U盘所在的驱动器（比如我的是j盘），“写入方式”选择“USB-HDD+”<br>3.接着单击“格式化”，按默认即可（一般默认文件系统位FAT32）<br>4.紧跟着便捷启动，选择syslinux<br>5.最后单击“写入”<br></p>
           <!--noindex-->
