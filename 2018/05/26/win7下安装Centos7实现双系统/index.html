@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别背景:前段时间朋友想玩玩Linux,于是给他电脑弄了个双系统.准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小">
+<meta name="description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别  准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.注意:为双系统划分free s">
 <meta name="keywords" content="centos,operations,grub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="win7下安装Centos7实现双系统">
 <meta property="og:url" content="https://zerolei.com/blog/2018/05/26/win7下安装Centos7实现双系统/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别背景:前段时间朋友想玩玩Linux,于是给他电脑弄了个双系统.准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小">
+<meta property="og:description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别  准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.注意:为双系统划分free s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zerolei.com/blog/2018/05/26/win7下安装Centos7实现双系统/bootloader.png">
 <meta property="og:image" content="https://zerolei.com/blog/2018/05/26/win7下安装Centos7实现双系统/dracut.png">
 <meta property="og:image" content="https://zerolei.com/blog/2018/05/26/win7下安装Centos7实现双系统/multloader.png">
-<meta property="og:updated_time" content="2018-05-29T11:43:03.974Z">
+<meta property="og:updated_time" content="2018-05-29T15:34:33.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="win7下安装Centos7实现双系统">
-<meta name="twitter:description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别背景:前段时间朋友想玩玩Linux,于是给他电脑弄了个双系统.准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小">
+<meta name="twitter:description" content="解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别  准备:  ● 笔记本（win7系统）  ● 比安装包容量更大的U盘  ● 预先准备软件：软碟通  ● Centos7系统（iso镜像文件） 一：进行磁盘分割打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.注意:为双系统划分free s">
 <meta name="twitter:image" content="https://zerolei.com/blog/2018/05/26/win7下安装Centos7实现双系统/bootloader.png">
 
 
@@ -372,6 +372,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/linux/operations/" itemprop="url" rel="index">
+                    <span itemprop="name">operations</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -396,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  766
+                  742
                 </span>
               
 
@@ -421,7 +432,9 @@
       
 
       
-        <p><center><strong>解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别</strong></center><br>背景:前段时间朋友想玩玩Linux,于是给他电脑弄了个双系统.<br>准备:<br>  ● 笔记本（win7系统）<br>  ● 比安装包容量更大的U盘<br>  ● 预先准备软件：软碟通<br>  ● Centos7系统（iso镜像文件）</p>
+        <center><strong>解决出现dracut:/# 的2种方法,编辑grub.cfg使windows分区被识别</strong></center>
+
+<p>准备:<br>  ● 笔记本（win7系统）<br>  ● 比安装包容量更大的U盘<br>  ● 预先准备软件：软碟通<br>  ● Centos7系统（iso镜像文件）</p>
 <h3 id="一：进行磁盘分割"><a href="#一：进行磁盘分割" class="headerlink" title="一：进行磁盘分割"></a>一：进行磁盘分割</h3><p>打开磁盘管理, 例如看到D盘有95G空余,右击“压缩卷”，输入压缩空间量，要小于可压缩空间的大小，我输入的是95000MB.<br>注意:为双系统划分free space时不需要“添加简单卷”</p>
 <h3 id="二：制作U盘系统盘。具体如下："><a href="#二：制作U盘系统盘。具体如下：" class="headerlink" title="二：制作U盘系统盘。具体如下："></a>二：制作U盘系统盘。具体如下：</h3><p>1.插入U盘，打开软碟通，打开-选择下好的系统iso文件-启动-写入硬盘映像<br>2.然后如下图所示，“硬盘驱动器”选择你U盘所在的驱动器（比如我的是j盘），“写入方式”选择“USB-HDD+”<br>3.接着单击“格式化”，按默认即可（一般默认文件系统位FAT32）<br>4.紧跟着便捷启动，选择syslinux<br>5.最后单击“写入”<br><a id="more"></a><br>               In the end它会显示你写入成功！</p>
 <h3 id="三：进入Bios界面-设置启动首选项为U盘"><a href="#三：进入Bios界面-设置启动首选项为U盘" class="headerlink" title="三：进入Bios界面,设置启动首选项为U盘"></a>三：进入Bios界面,设置启动首选项为U盘</h3><p>1.插入U盘，重启笔记本，启动时按F2，进入Bios界面<br>2.在Boot项里选择USB 为首选项<br>3.保存设置并离开。</p>
@@ -497,6 +510,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2018/05/29/centos7下安装python3-6-1/" rel="prev" title="centos7下安装python3.6.1">
+                centos7下安装python3.6.1 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -577,7 +594,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -588,7 +605,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -599,7 +616,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -707,7 +724,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.2k</span>
+    <span title="Site words total count">3.1k</span>
   
 </div>
 
