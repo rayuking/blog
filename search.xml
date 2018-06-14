@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[centos7下安装python3.6.1]]></title>
-    <url>%2Fblog%2F2018%2F05%2F29%2Fcentos7%E4%B8%8B%E5%AE%89%E8%A3%85python3-6-1%2F</url>
-    <content type="text"><![CDATA[不要动现有的python2环境！因为有很多系统命令，比如yum都要用到。 1. 安装依赖环境12yum -y groupinstall &quot;Development tools&quot;yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 部分依赖包说明:gcc:linux ( centos ) gcc 编译环境 ,安装后可以编译 Python 源码 –&gt; make &amp;; make installzlib-devel:压缩依赖包openssl-devel:让 Python pip 可以链接 httpsbzip2-devel:让 linux( centos) 可以使用bzip2 压缩sqlite-devel:sqlite 数据库依赖包 , 让 Python 可以使用 sqlite 数据库 –&gt; import sqlite3 2.下载Python3wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz 3.安装python3安装在/usr/local/python3（具体安装位置看个人喜好）创建目录：mkdir -p /usr/local/python3tar -zxvf Python-3.6.1.tgz 4.进入解压后的目录，编译安装。cd Python-3.6.1 ./configure –prefix=/usr/local/python3{./configure命令执行完毕之后创建一个文件creating Makefile，供下面的make命令使用 执行make install之后就会把程序安装到我们指定的目录中去。在待安装的源码路径下使用命令./configure –help输出详细的选项列表。其中–prefix选项是配置安装的路径，如果不配置该选项，安装后可执行文件默认放在/usr /local/bin，库文件默认放在/usr/local/lib，配置文件默认放在/usr/local/etc，其它的资源文件放在/usr /local/share，比较凌乱。如果配置–prefix，如：./configure –prefix=/usr/local/test可以把所有资源文件放在/usr/local/test的路径中，不会杂乱。用了—prefix选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就可以把软件卸载得干干净净；移植软件只需拷贝整个目录到另外一个机器即可（相同的操作系统）。当然要卸载程序，也可以在原来的make目录下用一次make uninstall，但前提是make文件指定过uninstall。} make &amp;&amp; make install 5.修改 Python 环境变量 或软连接修改环境变量软连接修改环境变量实例:建立python3的软链,使其在终端输入 Python ,直接跳转到 Python3 ● A、重命名 /usr/bin/python为 python2.6.6,防止和之前软链接冲突 ● B、创建软链接到 编译好的 Python3.5 目录 mv /usr/bin/python /usr/bin/python2.6.6执行ln -s /usr/local/python3/bin/python3 /usr/bin/python命令创建软连接。执行python -V查看Python是否安装成功。ln -s /usr/local/python3/bin/python3 /usr/bin/python3ln -s /usr/local/python3/bin/pip3 /usr/bin/pip #pip是Python官方推荐的包管理工具。 6.修改yum配置文件因为yum使用python2，因此替换为python3后可能无法正常工作，继续使用这个python2.7.5因此修改yum配置文件(vi /usr/bin/yum)。把文件头部的#!/usr/bin/python改成#!/usr/bin/python2.7保存退出即可。 vi /usr/libexec/urlgrabber-ext-down把文件头部的#!/usr/bin/python改成#!/usr/bin/python2.7保存退出即可。 7、设置别名方便使用alias py=python3 8、升级安装最新版PIPpip install --upgrade pip 最后可选择更换国内pypi镜像国内pypi镜像 ● 豆瓣：http://pypi.douban.com/simple ● 中国科学技术大学：http://pypi.mirrors.ustc.edu.cn/simple/]]></content>
+    <title><![CDATA[记一次解压破解实践]]></title>
+    <url>%2Fblog%2F2018%2F06%2F12%2F%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"><![CDATA[遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码….. 首先是找个现成工具试用下来发现: 可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次 使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码 不支持外部社工字典 只支持rar格式 针对2到4,3条缺陷,构思了下面的简易脚本 使用python调用外部的7z命令根据返回值判断是否成功;下面是关键代码 import os ret=1 for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j)) else: break print(j) 用来测试一个密码为12345的压缩包:缺点:慢,一分钟大概可以尝试2千次优点: 可支持外部社工字典 支持多种压缩格式]]></content>
       <categories>
-        <category>linux</category>
-        <category>operations</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>centos</tag>
-        <tag>operations</tag>
         <tag>python</tag>
+        <tag>破解</tag>
       </tags>
   </entry>
   <entry>
@@ -64,6 +62,20 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[centos7下安装python3.6.1]]></title>
+    <url>%2Fblog%2F2018%2F04%2F29%2Fcentos7%E4%B8%8B%E5%AE%89%E8%A3%85python3-6-1%2F</url>
+    <content type="text"><![CDATA[不要动现有的python2环境！因为有很多系统命令，比如yum都要用到。 1. 安装依赖环境12yum -y groupinstall &quot;Development tools&quot;yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel 部分依赖包说明:gcc:linux ( centos ) gcc 编译环境 ,安装后可以编译 Python 源码 –&gt; make &amp;; make installzlib-devel:压缩依赖包openssl-devel:让 Python pip 可以链接 httpsbzip2-devel:让 linux( centos) 可以使用bzip2 压缩sqlite-devel:sqlite 数据库依赖包 , 让 Python 可以使用 sqlite 数据库 –&gt; import sqlite3 2.下载Python3wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz 3.安装python3安装在/usr/local/python3（具体安装位置看个人喜好）创建目录：mkdir -p /usr/local/python3tar -zxvf Python-3.6.1.tgz 4.进入解压后的目录，编译安装。cd Python-3.6.1 ./configure –prefix=/usr/local/python3{./configure命令执行完毕之后创建一个文件creating Makefile，供下面的make命令使用 执行make install之后就会把程序安装到我们指定的目录中去。在待安装的源码路径下使用命令./configure –help输出详细的选项列表。其中–prefix选项是配置安装的路径，如果不配置该选项，安装后可执行文件默认放在/usr /local/bin，库文件默认放在/usr/local/lib，配置文件默认放在/usr/local/etc，其它的资源文件放在/usr /local/share，比较凌乱。如果配置–prefix，如：./configure –prefix=/usr/local/test可以把所有资源文件放在/usr/local/test的路径中，不会杂乱。用了—prefix选项的另一个好处是卸载软件或移植软件。当某个安装的软件不再需要时，只须简单的删除该安装目录，就可以把软件卸载得干干净净；移植软件只需拷贝整个目录到另外一个机器即可（相同的操作系统）。当然要卸载程序，也可以在原来的make目录下用一次make uninstall，但前提是make文件指定过uninstall。} make &amp;&amp; make install 5.修改 Python 环境变量 或软连接修改环境变量软连接修改环境变量实例:建立python3的软链,使其在终端输入 Python ,直接跳转到 Python3 ● A、重命名 /usr/bin/python为 python2.6.6,防止和之前软链接冲突 ● B、创建软链接到 编译好的 Python3.5 目录 mv /usr/bin/python /usr/bin/python2.6.6执行ln -s /usr/local/python3/bin/python3 /usr/bin/python命令创建软连接。执行python -V查看Python是否安装成功。ln -s /usr/local/python3/bin/python3 /usr/bin/python3ln -s /usr/local/python3/bin/pip3 /usr/bin/pip #pip是Python官方推荐的包管理工具。 6.修改yum配置文件因为yum使用python2，因此替换为python3后可能无法正常工作，继续使用这个python2.7.5因此修改yum配置文件(vi /usr/bin/yum)。把文件头部的#!/usr/bin/python改成#!/usr/bin/python2.7保存退出即可。 vi /usr/libexec/urlgrabber-ext-down把文件头部的#!/usr/bin/python改成#!/usr/bin/python2.7保存退出即可。 7、设置别名方便使用alias py=python3 8、升级安装最新版PIPpip install --upgrade pip 最后可选择更换国内pypi镜像国内pypi镜像 ● 豆瓣：http://pypi.douban.com/simple ● 中国科学技术大学：http://pypi.mirrors.ustc.edu.cn/simple/]]></content>
+      <categories>
+        <category>linux</category>
+        <category>operations</category>
+      </categories>
+      <tags>
+        <tag>centos</tag>
+        <tag>operations</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Perl常用编译指令]]></title>
     <url>%2Fblog%2F2018%2F03%2F09%2FPerl%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[123456#!usr/bin/perl -w #&quot;-w&quot;equal &quot;use warnings; &quot;use warnings;use strict;use 5.012; #指定最低perl版本,会隐式的打开 strict 编译指令use diagnostics;use autodie;]]></content>
@@ -77,12 +89,13 @@
   <entry>
     <title><![CDATA[just_test_next主题]]></title>
     <url>%2Fblog%2F2017%2F10%2F03%2Fjust_test_next%E4%B8%BB%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[测试居中测试添加图片 测试添加文摘content [author[source]] [link] [source_link_title] 测试自定义摘要 测试添加引用 [title] [] [url] [link text]1code snippet 测试添加普通的代码块 1alert(&apos;Hello World!&apos;); alert(‘Hello World!’);]]></content>
+    <content type="text"><![CDATA[测试居中测试添加图片: 测试添加文摘:content [author[source]] [link] [source_link_title] 测试自定义摘要: 测试添加引用: [title] [] [url] [link text]1code snippet 测试添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 测试添加普通的代码块2: import os ret=1 for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j)) else: break print(j) 测试添加普通的代码块3:dir 添加分割线: 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地]]></content>
       <categories>
         <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
