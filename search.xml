@@ -101,7 +101,7 @@
   <entry>
     <title><![CDATA[Markdown语法]]></title>
     <url>%2Fblog%2F2017%2F10%2F03%2FMarkdown%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[加粗 :Bold 或double underscores double asterisks斜体字 :Italics 或single underscores single asterisks删除线 :text 段落 : 段落之间空一行换行符 : 一行结束时输入两个空格 居中添加图片: 添加文摘方式1:content [author[source]] [link] [source_link_title] 自定义摘要: 添加文摘方式2: &#160;&#160;&#160;&#160;&#160;&#160;&#160;然而对于写博客这个事情，在IT行业来说比较普遍，其它非IT行业相对而比较少了。我认为不管是做IT的还是不做IT的都应该写博客，博客既可以记录自己的工作心得也可以写写自己的所思所想。时间长了也就成了自己成长的印记了，如果不及时记录，憋久了也就馊了，憋得多也就写不出来了。再者这也是一个自己表达想法的一种方式，就中国教育出来的这些学生而言，普遍都拧巴，不怎么会表达，我自己就是这样。这也是我最近开始写博客的原因之一。说得再现实一点，如果自己写的和记录的东西够多够好，这也就是自己的一张名片。任何一个一两页纸的简历都无法全面地展现一个人的方方面面，这也就是为什么有些互联网公司要求提供个人博客、微博、github和stackoverflow网址的原因。 添加引用: [title] [] [url] [link text]1code snippet 添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 添加普通的代码块2:12345678910import osret=1for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system('7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y' % (j)) else: break print(j) 内嵌代码:Use the printf() function. 添加水平线必须在行首插入三个以上”-“ : 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地或https://zerolei.com/ 黑体字海蓝,3号黑体字青色6号字体灰色10号字体]]></content>
+    <content type="text"><![CDATA[加粗 :Bold 或double underscores double asterisks斜体字 :Italics 或single underscores single asterisks删除线 :text 段落 : 段落之间空一行换行符 : 一行结束时输入两个空格 居中添加图片: 添加文摘方式1:content [author[source]] [link] [source_link_title] 自定义摘要: 添加文摘方式2: &#160;&#160;&#160;&#160;&#160;&#160;&#160;”熵”这个概念非常简单，很容易理解，但又异常强大，可以解释很多事情。这篇文章，我就来谈谈，为什么你应该懂得熵是什么，它可能也会改变你的世界观。总之，能量转换会创造出新的状态，熵就是进入这些状态的能量。 添加引用: [title] [] [url] [link text]1code snippet 添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 添加普通的代码块2:12345678910import osret=1for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system('7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y' % (j)) else: break print(j) 内嵌代码:Use the printf() function. 添加水平线必须在行首插入三个以上”-“ : 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地或https://zerolei.com/ 黑体字海蓝,3号黑体字青色6号字体灰色10号字体]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -118,8 +118,8 @@
         <category>meke blog</category>
       </categories>
       <tags>
-        <tag>make blog</tag>
         <tag>hexo</tag>
+        <tag>make blog</tag>
       </tags>
   </entry>
   <entry>
