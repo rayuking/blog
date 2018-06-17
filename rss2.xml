@@ -8,8 +8,25 @@
     <atom:link href="/blog/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>慢慢被锤骟,偶尔哼哧几句</description>
-    <pubDate>Thu, 14 Jun 2018 02:17:45 GMT</pubDate>
+    <pubDate>Sun, 17 Jun 2018 03:18:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>git page的证书过期后无法自动续签</title>
+      <link>https://zerolei.com/blog/2018/06/16/git%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/</link>
+      <guid>https://zerolei.com/blog/2018/06/16/git%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/</guid>
+      <pubDate>Fri, 15 Jun 2018 22:00:20 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;发现证书过期:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/2018/06/16/git page的证书过期后无法自动续签/certificate_expired.png&quot; alt=&quot;certificate_expired&quot;&gt;&lt;br&gt;&lt;/p&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>发现证书过期:</p><p><img src="/blog/2018/06/16/git page的证书过期后无法自动续签/certificate_expired.png" alt="certificate_expired"><br><a id="more"></a><br>在V2EX查到:</p><blockquote><p>之前你的域名解析 a 记录 ip 太老 需要换成 github 新的 ip 才行 然后清域名重置下 在重新绑定;</p></blockquote><p>但我在DNSPOD中没有设置A记录,只设置了CNAME记录,所以这就令人头秃了.</p><p>然而过了一天,又可以了….</p><p><img src="/blog/2018/06/16/git page的证书过期后无法自动续签/certificate_ok.png" alt="certificate_ok"></p><p>在此过程中倒是发现:<strong>使用带有<code>http*</code>的标题会导致图片不能被链接进博客</strong></p>]]></content:encoded>
+      
+      <comments>https://zerolei.com/blog/2018/06/16/git%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>记一次解压破解实践</title>
@@ -28,7 +45,7 @@
       
       </description>
       
-      <content:encoded><![CDATA[<p>遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码…..</p><h3 id="首先是找个现成工具"><a href="#首先是找个现成工具" class="headerlink" title="首先是找个现成工具"></a>首先是找个现成工具</h3><p>试用下来发现:</p><ol><li>可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次</li><li>使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码</li><li>不支持外部社工字典</li><li>只支持rar格式<a id="more"></a><img src="/blog/2018/06/12/记一次解压破解实践/现成工具的局限.png" alt="现成工具的局限"></li></ol><p>针对2到4,3条缺陷,构思了下面的简易脚本</p><h3 id="使用python调用外部的7z命令"><a href="#使用python调用外部的7z命令" class="headerlink" title="使用python调用外部的7z命令"></a>使用python调用外部的7z命令</h3><p>根据返回值判断是否成功;<br>下面是关键代码</p><pre><code>import osret=1for j in range(100001):            # print(ret)    if ret &gt; 0:        ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j))            else:        break    print(j)</code></pre><p>用来测试一个密码为12345的压缩包:<br><img src="/blog/2018/06/12/记一次解压破解实践/破解结果及缺点.png" alt="破解结果及缺点"><br>缺点:慢,一分钟大概可以尝试2千次<br>优点:</p><ol><li>可支持外部社工字典</li><li>支持多种压缩格式</li></ol>]]></content:encoded>
+      <content:encoded><![CDATA[<p>遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码…..</p><h3 id="首先是找个现成工具"><a href="#首先是找个现成工具" class="headerlink" title="首先是找个现成工具"></a>首先是找个现成工具</h3><p>试用下来发现:</p><ol><li>可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次</li><li>使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码</li><li>不支持外部社工字典</li><li>只支持rar格式<a id="more"></a><img src="/blog/2018/06/12/记一次解压破解实践/现成工具的局限.png" alt="现成工具的局限"></li></ol><p>针对2到4,3条缺陷,构思了下面的简易脚本</p><h3 id="测试7z指令"><a href="#测试7z指令" class="headerlink" title="测试7z指令"></a>测试7z指令</h3><p><code>7z x encryption.rar -p12345 -y</code><br><img src="/blog/2018/06/12/记一次解压破解实践/7z_command.png" alt="7z_command"></p><h3 id="使用python调用外部的7z指令"><a href="#使用python调用外部的7z指令" class="headerlink" title="使用python调用外部的7z指令"></a>使用python调用外部的7z指令</h3><p>根据返回值判断是否成功;<br>下面是关键代码</p><pre><code>import osret=1for j in range(100001):            # print(ret)    if ret &gt; 0:        ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j))            else:        break    print(j)</code></pre><p>用来测试一个密码为12345的压缩包:<br><img src="/blog/2018/06/12/记一次解压破解实践/破解结果及缺点.png" alt="破解结果及缺点"><br>缺点:慢,一分钟大概可以尝试2千次<br>优点:</p><ol><li>可支持外部社工字典</li><li>支持多种压缩格式</li></ol>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2018/06/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5/#disqus_thread</comments>
     </item>
@@ -158,23 +175,25 @@
     </item>
     
     <item>
-      <title>just_test_next主题</title>
-      <link>https://zerolei.com/blog/2017/10/03/just_test_next%E4%B8%BB%E9%A2%98/</link>
-      <guid>https://zerolei.com/blog/2017/10/03/just_test_next%E4%B8%BB%E9%A2%98/</guid>
+      <title>Markdown语法</title>
+      <link>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/</link>
+      <guid>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/</guid>
       <pubDate>Tue, 03 Oct 2017 15:18:09 GMT</pubDate>
       <description>
       
-        &lt;p&gt;&lt;center&gt;测试居中&lt;/center&gt;&lt;br&gt;测试添加图片:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/2017/10/03/just_test_next主题/myhead.jpg&quot; alt=&quot;头像&quot;&gt;&lt;/p&gt;
-&lt;p&gt;测试添加文摘:&lt;br&gt;&lt;blockquote&gt;&lt;p&gt;content&lt;/p&gt;
+        &lt;p&gt;加粗 :&lt;strong&gt;Bold&lt;/strong&gt;  或&lt;strong&gt;double underscores&lt;/strong&gt;  &lt;strong&gt;double asterisks&lt;/strong&gt;&lt;br&gt;斜体字 :&lt;em&gt;Italics&lt;/em&gt;  或&lt;em&gt;single underscores&lt;/em&gt;  &lt;em&gt;single asterisks&lt;/em&gt;&lt;br&gt;删除线 :&lt;del&gt;text&lt;/del&gt;   &lt;/p&gt;
+&lt;p&gt;段落 : 段落之间空一行&lt;br&gt;换行符 : 一行结束时输入两个空格  &lt;/p&gt;
+&lt;p&gt;&lt;center&gt;居中&lt;/center&gt;&lt;br&gt;添加图片:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/2017/10/03/Markdown语法/myhead.jpg&quot; alt=&quot;头像&quot;&gt;&lt;/p&gt;
+&lt;p&gt;添加文摘方式1:&lt;br&gt;&lt;blockquote&gt;&lt;p&gt;content&lt;/p&gt;
 &lt;footer&gt;&lt;strong&gt;[author[&lt;/strong&gt;&lt;cite&gt;source]] [link] [source_link_title]&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;&lt;/p&gt;
-&lt;p&gt;测试自定义摘要:&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;自定义摘要:&lt;br&gt;&lt;/p&gt;
       
       </description>
       
-      <content:encoded><![CDATA[<p><center>测试居中</center><br>测试添加图片:</p><p><img src="/blog/2017/10/03/just_test_next主题/myhead.jpg" alt="头像"></p><p>测试添加文摘:<br><blockquote><p>content</p><footer><strong>[author[</strong><cite>source]] [link] [source_link_title]</cite></footer></blockquote></p><p>测试自定义摘要:<br><a id="more"></a></p><p>测试添加引用:</p><figure class="highlight plain"><figcaption><span>[title] [] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure><p>测试添加普通的代码块1:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&apos;Hello World!&apos;);</span><br></pre></td></tr></table></figure><p>测试添加普通的代码块2:</p><pre><code>import osret=1for j in range(100001):            # print(ret)    if ret &gt; 0:        ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j))            else:        break    print(j)</code></pre><p>测试添加普通的代码块3:<code>dir</code>    </p><p>添加分割线:</p><hr><p>缩进:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符</p><p>添加链接:<a href="http://localhost:4000/" target="_blank" rel="noopener">本地</a> </p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>加粗 :<strong>Bold</strong>  或<strong>double underscores</strong>  <strong>double asterisks</strong><br>斜体字 :<em>Italics</em>  或<em>single underscores</em>  <em>single asterisks</em><br>删除线 :<del>text</del>   </p><p>段落 : 段落之间空一行<br>换行符 : 一行结束时输入两个空格  </p><p><center>居中</center><br>添加图片:</p><p><img src="/blog/2017/10/03/Markdown语法/myhead.jpg" alt="头像"></p><p>添加文摘方式1:<br><blockquote><p>content</p><footer><strong>[author[</strong><cite>source]] [link] [source_link_title]</cite></footer></blockquote></p><p>自定义摘要:<br><a id="more"></a></p><p>添加文摘方式2:</p><blockquote><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;然而对于写博客这个事情，在IT行业来说比较普遍，其它非IT行业相对而比较少了。我认为不管是做IT的还是不做IT的都应该写博客，博客既可以记录自己的工作心得也可以写写自己的所思所想。时间长了也就成了自己成长的印记了，如果不及时记录，憋久了也就馊了，憋得多也就写不出来了。再者这也是一个自己表达想法的一种方式，就中国教育出来的这些学生而言，普遍都拧巴，不怎么会表达，我自己就是这样。这也是我最近开始写博客的原因之一。说得再现实一点，如果自己写的和记录的东西够多够好，这也就是自己的一张名片。任何一个一两页纸的简历都无法全面地展现一个人的方方面面，这也就是为什么有些互联网公司要求提供个人博客、微博、github和stackoverflow网址的原因。</p></blockquote><p>添加引用:</p><figure class="highlight plain"><figcaption><span>[title] [] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure><p>添加普通的代码块1:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&apos;Hello World!&apos;);</span><br></pre></td></tr></table></figure><p>添加普通的代码块2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">ret=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">100001</span>):</span><br><span class="line"><span class="comment"># print(ret)</span></span><br><span class="line"><span class="keyword">if</span> ret &gt; <span class="number">0</span>:</span><br><span class="line">ret=os.system(<span class="string">'7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y'</span> % (j))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line">print(j)</span><br></pre></td></tr></table></figure></p><p>内嵌代码:Use the <code>printf()</code> function.  </p><p>添加水平线必须在行首插入三个以上”-“ :</p><hr><p>缩进:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符</p><p>添加链接:<a href="http://localhost:4000/" target="_blank" rel="noopener">本地</a><br>或<a href="https://zerolei.com/">https://zerolei.com/</a></p><font face="黑体">黑体字</font><br><font color="#0099ff" size="3" face="黑体">海蓝,3号黑体字</font><br><font color="#00ffff" size="6">青色6号字体</font><br><font color="gray" size="10">灰色10号字体</font>      ]]></content:encoded>
       
-      <comments>https://zerolei.com/blog/2017/10/03/just_test_next%E4%B8%BB%E9%A2%98/#disqus_thread</comments>
+      <comments>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/#disqus_thread</comments>
     </item>
     
     <item>
@@ -194,25 +213,6 @@
       <content:encoded><![CDATA[<h3 id="1-先安装-nodejs-和-git-下载hexo"><a href="#1-先安装-nodejs-和-git-下载hexo" class="headerlink" title="1. 先安装 nodejs 和 git 下载hexo"></a>1. 先安装 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a> 和 <a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> 下载hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexo  #创建一个文件夹</span><br><span class="line">$ cd hexo</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="2-使用hexo-n在本地-source-posts文件夹下新建了文章-撰写Markdown文档"><a href="#2-使用hexo-n在本地-source-posts文件夹下新建了文章-撰写Markdown文档" class="headerlink" title="2.使用hexo n在本地\source\_posts文件夹下新建了文章,撰写Markdown文档"></a>2.使用<code>hexo n</code>在本地<code>\source\_posts</code>文件夹下新建了文章,撰写Markdown文档</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"文章名称"</span></span><br></pre></td></tr></table></figure><h3 id="3-用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开-本地-查看页面"><a href="#3-用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开-本地-查看页面" class="headerlink" title="3. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 本地 查看页面"></a>3. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">本地</a> 查看页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h3 id="4-创建github账号，新建库，名为-你的用户名-github-io-下载部署工具hexo-deployer-git-git-clone-用户名-github-io库的地址链接-配置-config-yml文件-然后hexo-d部署上去"><a href="#4-创建github账号，新建库，名为-你的用户名-github-io-下载部署工具hexo-deployer-git-git-clone-用户名-github-io库的地址链接-配置-config-yml文件-然后hexo-d部署上去" class="headerlink" title="4. 创建github账号，新建库，名为: 你的用户名.github.io;下载部署工具hexo-deployer-git,git clone  用户名.github.io库的地址链接,配置_config.yml文件,然后hexo d部署上去"></a>4. 创建github账号，新建库，名为: 你的用户名.github.io;下载部署工具hexo-deployer-git,<code>git clone</code>  用户名.github.io库的地址链接,配置_config.yml文件,然后<code>hexo d</code>部署上去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><h3 id="5-可以绑定个人域名，可到-DNSPOD-设置DNS解析-dnspod免费版支持二级域名解析"><a href="#5-可以绑定个人域名，可到-DNSPOD-设置DNS解析-dnspod免费版支持二级域名解析" class="headerlink" title="5. 可以绑定个人域名，可到 DNSPOD 设置DNS解析,(dnspod免费版支持二级域名解析)"></a>5. 可以绑定个人域名，可到 <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSPOD</a> 设置DNS解析,(dnspod免费版支持二级域名解析)</h3><p>只需要一条 @ cname  记录链接到 你的用户名.guthub.io 即可<br>可参照<a href="https://support.dnspod.cn/Kb/showarticle/tsid/28/" target="_blank" rel="noopener">详情</a></p><h3 id="6-需要在用户名-github-io库的settingz中开启page功能-并配置个性域名-会生成一个CNAME文件-内容就是你的域名"><a href="#6-需要在用户名-github-io库的settingz中开启page功能-并配置个性域名-会生成一个CNAME文件-内容就是你的域名" class="headerlink" title="6. 需要在用户名.github.io库的settingz中开启page功能;并配置个性域名(会生成一个CNAME文件),内容就是你的域名"></a>6. 需要在用户名.github.io库的settingz中开启page功能;并配置个性域名(会生成一个CNAME文件),内容就是你的域名</h3><p>CNAME文件内容,如:<code>zerolei.com</code></p>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2017/08/19/Make-Blog/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>简介Hexo</title>
-      <link>https://zerolei.com/blog/2017/08/18/%E7%AE%80%E4%BB%8BHexo/</link>
-      <guid>https://zerolei.com/blog/2017/08/18/%E7%AE%80%E4%BB%8BHexo/</guid>
-      <pubDate>Thu, 17 Aug 2017 16:32:21 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;p&gt;这个是由台湾人Tommy Chen用node.js开发的程序&lt;br&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first 
-        
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>这个是由台湾人Tommy Chen用node.js开发的程序<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content:encoded>
-      
-      <comments>https://zerolei.com/blog/2017/08/18/%E7%AE%80%E4%BB%8BHexo/#disqus_thread</comments>
     </item>
     
   </channel>

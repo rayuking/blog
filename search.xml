@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git page的证书过期后无法自动续签]]></title>
+    <url>%2Fblog%2F2018%2F06%2F16%2Fgit%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE%2F</url>
+    <content type="text"><![CDATA[发现证书过期: 在V2EX查到: 之前你的域名解析 a 记录 ip 太老 需要换成 github 新的 ip 才行 然后清域名重置下 在重新绑定; 但我在DNSPOD中没有设置A记录,只设置了CNAME记录,所以这就令人头秃了. 然而过了一天,又可以了…. 在此过程中倒是发现:使用带有http*的标题会导致图片不能被链接进博客]]></content>
+      <categories>
+        <category>operations</category>
+      </categories>
+      <tags>
+        <tag>certificate</tag>
+        <tag>git-page</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[记一次解压破解实践]]></title>
     <url>%2Fblog%2F2018%2F06%2F12%2F%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5%2F</url>
-    <content type="text"><![CDATA[遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码….. 首先是找个现成工具试用下来发现: 可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次 使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码 不支持外部社工字典 只支持rar格式 针对2到4,3条缺陷,构思了下面的简易脚本 使用python调用外部的7z命令根据返回值判断是否成功;下面是关键代码 import os ret=1 for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j)) else: break print(j) 用来测试一个密码为12345的压缩包:缺点:慢,一分钟大概可以尝试2千次优点: 可支持外部社工字典 支持多种压缩格式]]></content>
+    <content type="text"><![CDATA[遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码….. 首先是找个现成工具试用下来发现: 可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次 使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码 不支持外部社工字典 只支持rar格式 针对2到4,3条缺陷,构思了下面的简易脚本 测试7z指令7z x encryption.rar -p12345 -y 使用python调用外部的7z指令根据返回值判断是否成功;下面是关键代码 import os ret=1 for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j)) else: break print(j) 用来测试一个密码为12345的压缩包:缺点:慢,一分钟大概可以尝试2千次优点: 可支持外部社工字典 支持多种压缩格式]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -87,9 +99,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[just_test_next主题]]></title>
-    <url>%2Fblog%2F2017%2F10%2F03%2Fjust_test_next%E4%B8%BB%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[测试居中测试添加图片: 测试添加文摘:content [author[source]] [link] [source_link_title] 测试自定义摘要: 测试添加引用: [title] [] [url] [link text]1code snippet 测试添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 测试添加普通的代码块2: import os ret=1 for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j)) else: break print(j) 测试添加普通的代码块3:dir 添加分割线: 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地]]></content>
+    <title><![CDATA[Markdown语法]]></title>
+    <url>%2Fblog%2F2017%2F10%2F03%2FMarkdown%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[加粗 :Bold 或double underscores double asterisks斜体字 :Italics 或single underscores single asterisks删除线 :text 段落 : 段落之间空一行换行符 : 一行结束时输入两个空格 居中添加图片: 添加文摘方式1:content [author[source]] [link] [source_link_title] 自定义摘要: 添加文摘方式2: &#160;&#160;&#160;&#160;&#160;&#160;&#160;然而对于写博客这个事情，在IT行业来说比较普遍，其它非IT行业相对而比较少了。我认为不管是做IT的还是不做IT的都应该写博客，博客既可以记录自己的工作心得也可以写写自己的所思所想。时间长了也就成了自己成长的印记了，如果不及时记录，憋久了也就馊了，憋得多也就写不出来了。再者这也是一个自己表达想法的一种方式，就中国教育出来的这些学生而言，普遍都拧巴，不怎么会表达，我自己就是这样。这也是我最近开始写博客的原因之一。说得再现实一点，如果自己写的和记录的东西够多够好，这也就是自己的一张名片。任何一个一两页纸的简历都无法全面地展现一个人的方方面面，这也就是为什么有些互联网公司要求提供个人博客、微博、github和stackoverflow网址的原因。 添加引用: [title] [] [url] [link text]1code snippet 添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 添加普通的代码块2:12345678910import osret=1for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system('7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y' % (j)) else: break print(j) 内嵌代码:Use the printf() function. 添加水平线必须在行首插入三个以上”-“ : 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地或https://zerolei.com/ 黑体字海蓝,3号黑体字青色6号字体灰色10号字体]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -106,8 +118,8 @@
         <category>meke blog</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>make blog</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
