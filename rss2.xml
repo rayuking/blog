@@ -8,8 +8,43 @@
     <atom:link href="/blog/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>慢慢被锤骟,偶尔哼哧几句</description>
-    <pubDate>Sun, 17 Jun 2018 03:18:55 GMT</pubDate>
+    <pubDate>Wed, 04 Jul 2018 13:49:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>备份的基本原则及相关命令</title>
+      <link>https://zerolei.com/blog/2018/07/04/%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</link>
+      <guid>https://zerolei.com/blog/2018/07/04/%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</guid>
+      <pubDate>Wed, 04 Jul 2018 06:54:50 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;备份的最佳做法是采取3-2-1规则，即至少做三个副本，用两种不同格式保存，并将副本放在异地存储。&lt;/p&gt;
+&lt;h3 id=&quot;Linux下一般使用rsync&quot;&gt;&lt;a href=&quot;#Linux下一般使用rsync&quot; class=&quot;headerlink&quot; title=&quot;Linux下一般使用rsync&quot;&gt;&lt;/a&gt;Linux下一般使用&lt;a href=&quot;http://man.linuxde.net/rsync&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;rsync&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;rsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote Sync可以远程同步，支持本地复制，或者与其他SSH、rsync主机同步。&lt;/p&gt;
+&lt;h3 id=&quot;Windows下则推荐使用FreeFileSync&quot;&gt;&lt;a href=&quot;#Windows下则推荐使用FreeFileSync&quot; class=&quot;headerlink&quot; title=&quot;Windows下则推荐使用FreeFileSync&quot;&gt;&lt;/a&gt;Windows下则推荐使用&lt;a href=&quot;https://freefilesync.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;FreeFileSync&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;具体的使用方法要参考：&lt;br&gt;&lt;a href=&quot;http://fs1.wups.ntpc.edu.tw/documents/pdf/%E5%9C%A8Windows7%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E8%B3%87%E6%96%99.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在 Windows 7  使用 FreeFileSync 同步資料&lt;/a&gt;&lt;/p&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;备份的最佳做法是采取3-2-1规则，即至少做三个副本，用两种不同格式保存，并将副本放在异地存储。</p><h3 id="Linux下一般使用rsync"><a href="#Linux下一般使用rsync" class="headerlink" title="Linux下一般使用rsync"></a>Linux下一般使用<a href="http://man.linuxde.net/rsync" target="_blank" rel="noopener">rsync</a></h3><p>rsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote Sync可以远程同步，支持本地复制，或者与其他SSH、rsync主机同步。</p><h3 id="Windows下则推荐使用FreeFileSync"><a href="#Windows下则推荐使用FreeFileSync" class="headerlink" title="Windows下则推荐使用FreeFileSync"></a>Windows下则推荐使用<a href="https://freefilesync.org/" target="_blank" rel="noopener">FreeFileSync</a></h3><p>具体的使用方法要参考：<br><a href="http://fs1.wups.ntpc.edu.tw/documents/pdf/%E5%9C%A8Windows7%E4%BD%BF%E7%94%A8FreeFileSync%E5%90%8C%E6%AD%A5%E8%B3%87%E6%96%99.pdf" target="_blank" rel="noopener">在 Windows 7  使用 FreeFileSync 同步資料</a></p><a id="more"></a><h3 id="我的实例"><a href="#我的实例" class="headerlink" title="我的实例:"></a>我的实例:</h3><p><img src="/blog/2018/07/04/备份的基本原则及相关命令/My_FreeFileSync.png" alt="My_FreeFileSync"></p><p>比较设置可以采用默认;<br>而同步设置:推荐镜像+历史版本的方式<br><img src="/blog/2018/07/04/备份的基本原则及相关命令/sync_set.png" alt="sync_set.png"></p><p>其他功能:过滤器,生成脚本,待发掘</p>]]></content:encoded>
+      
+      <comments>https://zerolei.com/blog/2018/07/04/%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>win10更新到1803升级实践</title>
+      <link>https://zerolei.com/blog/2018/07/01/win10%E6%9B%B4%E6%96%B0%E5%88%B01803%E5%8D%87%E7%BA%A7%E5%AE%9E%E8%B7%B5/</link>
+      <guid>https://zerolei.com/blog/2018/07/01/win10%E6%9B%B4%E6%96%B0%E5%88%B01803%E5%8D%87%E7%BA%A7%E5%AE%9E%E8%B7%B5/</guid>
+      <pubDate>Sun, 01 Jul 2018 08:53:43 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;最近win10系统又被强迫更新到了1803,不出意外的出现了小问题,在此记录一下解决过程&lt;/p&gt;
+&lt;h3 id=&quot;发现C盘容量占用蹭蹭上涨&quot;&gt;&lt;a href=&quot;#发现C盘容量占用蹭蹭上涨&quot; class=&quot;headerlink&quot; title=&quot;发现C盘容量占用蹭蹭上涨&quot;&gt;&lt;/a&gt;发现C盘容量占用蹭蹭上涨&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/blog/2018/07/01/win10更新到1803升级实践/win10_history.png&quot; alt=&quot;win10_history&quot;&gt;&lt;/p&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;最近win10系统又被强迫更新到了1803,不出意外的出现了小问题,在此记录一下解决过程</p><h3 id="发现C盘容量占用蹭蹭上涨"><a href="#发现C盘容量占用蹭蹭上涨" class="headerlink" title="发现C盘容量占用蹭蹭上涨"></a>发现C盘容量占用蹭蹭上涨</h3><p><img src="/blog/2018/07/01/win10更新到1803升级实践/win10_history.png" alt="win10_history"></p><a id="more"></a><p>可以使用自带的磁盘清理工具安全删除掉</p><h3 id="virtualbox的主机网络配置文件丢失"><a href="#virtualbox的主机网络配置文件丢失" class="headerlink" title="virtualbox的主机网络配置文件丢失;"></a>virtualbox的主机网络配置文件丢失;</h3><p>virtualbox 打开虚拟机报错host-only ethernet error<br><img src="/blog/2018/07/01/win10更新到1803升级实践/host-only_ethernet_error.png" alt="host-only_ethernet_error"><br>查看ip:发现之前设置的虚拟host ip失效了<br><img src="/blog/2018/07/01/win10更新到1803升级实践/win10-ip.png" alt="win10-ip"><br>于是重新设置:<br><img src="/blog/2018/07/01/win10更新到1803升级实践/reset_host-only_ip.png" alt="reset_host-only_ip"><br>打开还是报错,猜测是虚拟网卡的mac有变动,点击刷新:<br><img src="/blog/2018/07/01/win10更新到1803升级实践/reset_virtualbox_mac.png" alt="reset_virtualbox_mac"><br>成功启动后<br><code>cd /etc/sysconfig/network-scripts/</code>把刚更新的HWADDR配置到对应的网卡配置文件中<br><img src="/blog/2018/07/01/win10更新到1803升级实践/update_hwaddr.png" alt="update_hwaddr"><br>安装1803质量更新后重启电脑,打完收工.</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Note:VirtualBox、Vmware、Hyper-v 之间有冲突;<br>VT-x/AMD-V“是处理器的硬件虚拟化支持，已经在BIOS中打开了； Hyper-V使用了它，于是VirtualBox、VMware就报无法使用（”not operational“）了</p>]]></content:encoded>
+      
+      <comments>https://zerolei.com/blog/2018/07/01/win10%E6%9B%B4%E6%96%B0%E5%88%B01803%E5%8D%87%E7%BA%A7%E5%AE%9E%E8%B7%B5/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>git page的证书过期后无法自动续签</title>
@@ -172,47 +207,6 @@
       <content:encoded><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!usr/bin/perl -w#&quot;-w&quot;equal &quot;use warnings; &quot;</span><br><span class="line">use warnings;</span><br><span class="line">use strict;</span><br><span class="line">use 5.012;                         #指定最低perl版本,会隐式的打开 strict 编译指令</span><br><span class="line">use diagnostics;</span><br><span class="line">use autodie;</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2018/03/09/Perl%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Markdown语法</title>
-      <link>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/</link>
-      <guid>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/</guid>
-      <pubDate>Tue, 03 Oct 2017 15:18:09 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;加粗 :&lt;strong&gt;Bold&lt;/strong&gt;  或&lt;strong&gt;double underscores&lt;/strong&gt;  &lt;strong&gt;double asterisks&lt;/strong&gt;&lt;br&gt;斜体字 :&lt;em&gt;Italics&lt;/em&gt;  或&lt;em&gt;single underscores&lt;/em&gt;  &lt;em&gt;single asterisks&lt;/em&gt;&lt;br&gt;删除线 :&lt;del&gt;text&lt;/del&gt;   &lt;/p&gt;
-&lt;p&gt;段落 : 段落之间空一行&lt;br&gt;换行符 : 一行结束时输入两个空格  &lt;/p&gt;
-&lt;p&gt;&lt;center&gt;居中&lt;/center&gt;&lt;br&gt;添加图片:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/2017/10/03/Markdown语法/myhead.jpg&quot; alt=&quot;头像&quot;&gt;&lt;/p&gt;
-&lt;p&gt;添加文摘方式1:&lt;br&gt;&lt;blockquote&gt;&lt;p&gt;content&lt;/p&gt;
-&lt;footer&gt;&lt;strong&gt;[author[&lt;/strong&gt;&lt;cite&gt;source]] [link] [source_link_title]&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;&lt;/p&gt;
-&lt;p&gt;自定义摘要:&lt;br&gt;&lt;/p&gt;
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>加粗 :<strong>Bold</strong>  或<strong>double underscores</strong>  <strong>double asterisks</strong><br>斜体字 :<em>Italics</em>  或<em>single underscores</em>  <em>single asterisks</em><br>删除线 :<del>text</del>   </p><p>段落 : 段落之间空一行<br>换行符 : 一行结束时输入两个空格  </p><p><center>居中</center><br>添加图片:</p><p><img src="/blog/2017/10/03/Markdown语法/myhead.jpg" alt="头像"></p><p>添加文摘方式1:<br><blockquote><p>content</p><footer><strong>[author[</strong><cite>source]] [link] [source_link_title]</cite></footer></blockquote></p><p>自定义摘要:<br><a id="more"></a></p><p>添加文摘方式2:</p><blockquote><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;”熵”这个概念非常简单，很容易理解，但又异常强大，可以解释很多事情。这篇文章，我就来谈谈，为什么你应该懂得熵是什么，它可能也会改变你的世界观。<br><strong>总之，能量转换会创造出新的状态，熵就是进入这些状态的能量。</strong></p></blockquote><p>添加引用:</p><figure class="highlight plain"><figcaption><span>[title] [] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure><p>添加普通的代码块1:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&apos;Hello World!&apos;);</span><br></pre></td></tr></table></figure><p>添加普通的代码块2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">ret=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">100001</span>):</span><br><span class="line"><span class="comment"># print(ret)</span></span><br><span class="line"><span class="keyword">if</span> ret &gt; <span class="number">0</span>:</span><br><span class="line">ret=os.system(<span class="string">'7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y'</span> % (j))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line">print(j)</span><br></pre></td></tr></table></figure></p><p>内嵌代码:Use the <code>printf()</code> function.  </p><p>添加水平线必须在行首插入三个以上”-“ :</p><hr><p>缩进:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符</p><p>添加链接:<a href="http://localhost:4000/" target="_blank" rel="noopener">本地</a><br>或<a href="https://zerolei.com/">https://zerolei.com/</a></p><font face="黑体">黑体字</font><br><font color="#0099ff" size="3" face="黑体">海蓝,3号黑体字</font><br><font color="#00ffff" size="6">青色6号字体</font><br><font color="gray" size="10">灰色10号字体</font>      ]]></content:encoded>
-      
-      <comments>https://zerolei.com/blog/2017/10/03/Markdown%E8%AF%AD%E6%B3%95/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Make-Blog</title>
-      <link>https://zerolei.com/blog/2017/08/19/Make-Blog/</link>
-      <guid>https://zerolei.com/blog/2017/08/19/Make-Blog/</guid>
-      <pubDate>Fri, 18 Aug 2017 16:42:46 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;h3 id=&quot;1-先安装-nodejs-和-git-下载hexo&quot;&gt;&lt;a href=&quot;#1-先安装-nodejs-和-git-下载hexo&quot; class=&quot;headerlink&quot; title=&quot;1. 先安装 nodejs 和 git 下载hexo&quot;&gt;&lt;/a&gt;1. 先安装 &lt;a 
-        
-      
-      </description>
-      
-      <content:encoded><![CDATA[<h3 id="1-先安装-nodejs-和-git-下载hexo"><a href="#1-先安装-nodejs-和-git-下载hexo" class="headerlink" title="1. 先安装 nodejs 和 git 下载hexo"></a>1. 先安装 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a> 和 <a href="https://git-scm.com/" target="_blank" rel="noopener">git</a> 下载hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir hexo  #创建一个文件夹</span><br><span class="line">$ cd hexo</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h3 id="2-使用hexo-n在本地-source-posts文件夹下新建了文章-撰写Markdown文档"><a href="#2-使用hexo-n在本地-source-posts文件夹下新建了文章-撰写Markdown文档" class="headerlink" title="2.使用hexo n在本地\source\_posts文件夹下新建了文章,撰写Markdown文档"></a>2.使用<code>hexo n</code>在本地<code>\source\_posts</code>文件夹下新建了文章,撰写Markdown文档</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n <span class="string">"文章名称"</span></span><br></pre></td></tr></table></figure><h3 id="3-用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开-本地-查看页面"><a href="#3-用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开-本地-查看页面" class="headerlink" title="3. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 本地 查看页面"></a>3. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">本地</a> 查看页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><h3 id="4-创建github账号，新建库，名为-你的用户名-github-io-下载部署工具hexo-deployer-git-git-clone-用户名-github-io库的地址链接-配置-config-yml文件-然后hexo-d部署上去"><a href="#4-创建github账号，新建库，名为-你的用户名-github-io-下载部署工具hexo-deployer-git-git-clone-用户名-github-io库的地址链接-配置-config-yml文件-然后hexo-d部署上去" class="headerlink" title="4. 创建github账号，新建库，名为: 你的用户名.github.io;下载部署工具hexo-deployer-git,git clone  用户名.github.io库的地址链接,配置_config.yml文件,然后hexo d部署上去"></a>4. 创建github账号，新建库，名为: 你的用户名.github.io;下载部署工具hexo-deployer-git,<code>git clone</code>  用户名.github.io库的地址链接,配置_config.yml文件,然后<code>hexo d</code>部署上去</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><h3 id="5-可以绑定个人域名，可到-DNSPOD-设置DNS解析-dnspod免费版支持二级域名解析"><a href="#5-可以绑定个人域名，可到-DNSPOD-设置DNS解析-dnspod免费版支持二级域名解析" class="headerlink" title="5. 可以绑定个人域名，可到 DNSPOD 设置DNS解析,(dnspod免费版支持二级域名解析)"></a>5. 可以绑定个人域名，可到 <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSPOD</a> 设置DNS解析,(dnspod免费版支持二级域名解析)</h3><p>只需要一条 @ cname  记录链接到 你的用户名.guthub.io 即可<br>可参照<a href="https://support.dnspod.cn/Kb/showarticle/tsid/28/" target="_blank" rel="noopener">详情</a></p><h3 id="6-需要在用户名-github-io库的settingz中开启page功能-并配置个性域名-会生成一个CNAME文件-内容就是你的域名"><a href="#6-需要在用户名-github-io库的settingz中开启page功能-并配置个性域名-会生成一个CNAME文件-内容就是你的域名" class="headerlink" title="6. 需要在用户名.github.io库的settingz中开启page功能;并配置个性域名(会生成一个CNAME文件),内容就是你的域名"></a>6. 需要在用户名.github.io库的settingz中开启page功能;并配置个性域名(会生成一个CNAME文件),内容就是你的域名</h3><p>CNAME文件内容,如:<code>zerolei.com</code></p>]]></content:encoded>
-      
-      <comments>https://zerolei.com/blog/2017/08/19/Make-Blog/#disqus_thread</comments>
     </item>
     
   </channel>

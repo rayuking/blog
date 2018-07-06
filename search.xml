@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[备份的基本原则及相关命令]]></title>
+    <url>%2Fblog%2F2018%2F07%2F04%2F%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;备份的最佳做法是采取3-2-1规则，即至少做三个副本，用两种不同格式保存，并将副本放在异地存储。 Linux下一般使用rsyncrsync是linux系统下的数据镜像备份工具。使用快速增量备份工具Remote Sync可以远程同步，支持本地复制，或者与其他SSH、rsync主机同步。 Windows下则推荐使用FreeFileSync具体的使用方法要参考：在 Windows 7 使用 FreeFileSync 同步資料 我的实例: 比较设置可以采用默认;而同步设置:推荐镜像+历史版本的方式 其他功能:过滤器,生成脚本,待发掘]]></content>
+      <categories>
+        <category>operations</category>
+      </categories>
+      <tags>
+        <tag>backup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[win10更新到1803升级实践]]></title>
+    <url>%2Fblog%2F2018%2F07%2F01%2Fwin10%E6%9B%B4%E6%96%B0%E5%88%B01803%E5%8D%87%E7%BA%A7%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;最近win10系统又被强迫更新到了1803,不出意外的出现了小问题,在此记录一下解决过程 发现C盘容量占用蹭蹭上涨 可以使用自带的磁盘清理工具安全删除掉 virtualbox的主机网络配置文件丢失;virtualbox 打开虚拟机报错host-only ethernet error查看ip:发现之前设置的虚拟host ip失效了于是重新设置:打开还是报错,猜测是虚拟网卡的mac有变动,点击刷新:成功启动后cd /etc/sysconfig/network-scripts/把刚更新的HWADDR配置到对应的网卡配置文件中安装1803质量更新后重启电脑,打完收工. &#160;&#160;&#160;&#160;&#160;&#160;&#160;Note:VirtualBox、Vmware、Hyper-v 之间有冲突;VT-x/AMD-V“是处理器的硬件虚拟化支持，已经在BIOS中打开了； Hyper-V使用了它，于是VirtualBox、VMware就报无法使用（”not operational“）了]]></content>
+      <categories>
+        <category>operations</category>
+      </categories>
+      <tags>
+        <tag>win10</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[git page的证书过期后无法自动续签]]></title>
     <url>%2Fblog%2F2018%2F06%2F16%2Fgit%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE%2F</url>
     <content type="text"><![CDATA[发现证书过期: 在V2EX查到: 之前你的域名解析 a 记录 ip 太老 需要换成 github 新的 ip 才行 然后清域名重置下 在重新绑定; 但我在DNSPOD中没有设置A记录,只设置了CNAME记录,所以这就令人头秃了. 然而过了一天,又可以了…. 在此过程中倒是发现:使用带有http*的标题会导致图片不能被链接进博客]]></content>
