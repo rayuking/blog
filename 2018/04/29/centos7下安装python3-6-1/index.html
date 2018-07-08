@@ -90,8 +90,9 @@
 <meta property="og:description" content="不要动现有的python2环境！因为有很多系统命令，比如yum都要用到。 1. 安装依赖环境12yum -y groupinstall &amp;quot;Development tools&amp;quot;yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zerolei.com/blog/2018/04/29/centos7下安装python3-6-1/linkpython.png">
+<meta property="og:image" content="https://zerolei.com/blog/2018/04/29/centos7下安装python3-6-1/安装python3后遗症_2018-07-08.png">
 <meta property="og:image" content="https://zerolei.com/blog/2018/04/29/centos7下安装python3-6-1/pip.png">
-<meta property="og:updated_time" content="2018-07-08T04:20:49.025Z">
+<meta property="og:updated_time" content="2018-07-08T05:23:18.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7下安装python3.6.1">
 <meta name="twitter:description" content="不要动现有的python2环境！因为有很多系统命令，比如yum都要用到。 1. 安装依赖环境12yum -y groupinstall &amp;quot;Development tools&amp;quot;yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel">
@@ -406,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,092
+                  1,130
                 </span>
               
 
@@ -446,9 +447,8 @@
 <li>yum install python3-gi</li>
 </ol>
 <p>或者2. 修改相关配置文件：<br>第一步，vim /usr/bin/firewall-cmd， 将#！/usr/bin/python -Es 改为 #！/usr/bin/python2.7 -Es（到目前为止，上面提到的问题已解决）<br>顺便把这两个文件一并改了:<br>/usr/bin/firewall-config<br>/usr/bin/firewall-offline-cmd</p>
-<p>第二步，vim /usr/sbin/firewalld,  将#！/usr/bin/python -Es 改为 #！/usr/bin/python2.7 -Es (这一步是针对于防火墙起不来的问题(4月底安装python3之后就有问题,不过一直没发现)，进行的修改—&gt;如何查询CentOS7开关机日志)</p>
-<p><a href="https://www.jianshu.com/p/a538125371d4" target="_blank" rel="noopener">https://www.jianshu.com/p/a538125371d4</a></p>
-<p>除此之外还有一些其他文件使用的Python，可以使用grep命令查看哪些文件使用了Python解释器，根据具体情况修改。例如查看/usr/bin目录下的文件<br><code>grep -ai /usr/bin/python /usr/bin/*</code><br>}</p>
+<p>第二步，vim /usr/sbin/firewalld,  将#！/usr/bin/python -Es 改为 #！/usr/bin/python2.7 -Es (这一步是针对于防火墙起不来的问题(4月底安装python3之后就有问题,不过一直没发现)，进行的修改—&gt;如何查询CentOS7开关机日志中的报错??)<br>改完后重启firewalld,ok!<br><img src="/blog/2018/04/29/centos7下安装python3-6-1/安装python3后遗症_2018-07-08.png" alt="安装python3后遗症_2018-07-08"><br>发现别人也遇到过这个问题:<a href="https://www.jianshu.com/p/a538125371d4" target="_blank" rel="noopener">Centos7 安装python3后不兼容问题</a></p>
+<p>除此之外还有一些其他文件使用的Python，可以使用grep命令查看哪些文件使用了Python解释器，根据具体情况修改。例如查看/usr/bin目录下的文件<br><code>grep -ai /usr/bin/python /usr/bin/* | wc -l</code>    统计有66个,令人头秃….<br>}</p>
 <h3 id="7、设置别名方便使用"><a href="#7、设置别名方便使用" class="headerlink" title="7、设置别名方便使用"></a>7、设置别名方便使用</h3><p><code>alias py=python3</code></p>
 <h3 id="8、升级安装最新版PIP"><a href="#8、升级安装最新版PIP" class="headerlink" title="8、升级安装最新版PIP"></a>8、升级安装最新版PIP</h3><p><code>pip install --upgrade pip</code></p>
 <p><img src="/blog/2018/04/29/centos7下安装python3-6-1/pip.png" alt="pip"></p>
@@ -728,7 +728,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.3k</span>
+    <span title="Site words total count">4.4k</span>
   
 </div>
 
