@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[抓包分析HTTP通信细节]]></title>
+    <url>%2Fblog%2F2019%2F02%2F25%2F%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90HTTP%E9%80%9A%E4%BF%A1%E7%BB%86%E8%8A%82%2F</url>
+    <content type="text"><![CDATA[&#8195;&#8195;用wireshark和tcpdump来分析TCP的“三次握手，四次挥手”，非常好用。待续]]></content>
+      <categories>
+        <category>network</category>
+        <category>protocol</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[元宵记事]]></title>
     <url>%2Fblog%2F2019%2F02%2F19%2F%E5%85%83%E5%AE%B5%E8%AE%B0%E4%BA%8B%2F</url>
     <content type="text"><![CDATA[:) &#160;&#160;&#160;&#160;&#160;&#160;&#160;又是一年元宵时,还记得第一回不在家过元宵是高三的时候,独自在教室听着外面虽然喧闹但却与我无关的烟花.当时万万没想到这已然打开了在外过元宵的序幕.&#160;&#160;&#160;&#160;&#160;&#160;&#160;转眼十余年过去,爸妈也从担忧我的学习转变为催促我成家立业,(中间还担心过我的工作,老误解我是修电脑的).&#160;&#160;&#160;&#160;&#160;&#160;&#160;在茫茫上海,人自然是孤独的,好在近来电话中爸妈的笑声多了起来,因为我在谈一个女生,从一开始联系到现在刚好半个月,经历了一开始的手足无措,也慢慢有了一些的沟通,这可是很难得的,加油!&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;最后吐槽下自己,几个小时就憋出这几个字.]]></content>
@@ -134,7 +146,7 @@
   <entry>
     <title><![CDATA[Markdown语法]]></title>
     <url>%2Fblog%2F2017%2F10%2F03%2FMarkdown%E8%AF%AD%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[加粗 :Bold 或double underscores double asterisks斜体字 :Italics 或single underscores single asterisks删除线 :text 段落 : 段落之间空一行换行符 : 一行结束时输入两个空格 居中添加图片: 添加文摘方式1:content [author[source]] [link] [source_link_title] 自定义摘要: 添加文摘方式2: &#160;&#160;&#160;&#160;&#160;&#160;&#160;”熵”这个概念非常简单，很容易理解，但又异常强大，可以解释很多事情。这篇文章，我就来谈谈，为什么你应该懂得熵是什么，它可能也会改变你的世界观。总之，能量转换会创造出新的状态，熵就是进入这些状态的能量。 添加引用: [title] [] [url] [link text]1code snippet 添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 添加普通的代码块2:12345678910import osret=1for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system('7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y' % (j)) else: break print(j) 内嵌代码:Use the printf() function. 添加水平线必须在行首插入三个以上”-“ : 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符 添加链接:本地或https://zerolei.com/ 黑体字海蓝,3号黑体字青色6号字体灰色10号字体]]></content>
+    <content type="text"><![CDATA[加粗 :Bold 或double underscores double asterisks斜体字 :Italics 或single underscores single asterisks删除线 :text 段落 : 段落之间空一行换行符 : 一行结束时输入两个空格 居中添加图片: 添加文摘方式1:content [author[source]] [link] [source_link_title] 自定义摘要: 添加文摘方式2: &#160;&#160;&#160;&#160;&#160;&#160;&#160;”熵”这个概念非常简单，很容易理解，但又异常强大，可以解释很多事情。这篇文章，我就来谈谈，为什么你应该懂得熵是什么，它可能也会改变你的世界观。总之，能量转换会创造出新的状态，熵就是进入这些状态的能量。 添加引用: [title] [] [url] [link text]1code snippet 添加普通的代码块1: 1alert(&apos;Hello World!&apos;); 添加普通的代码块2:12345678910import osret=1for j in range(100001): # print(ret) if ret &gt; 0: ret=os.system('7z x "C:\\Users\\king\\Desktop\\test\\encryption.7z" -p%s -y' % (j)) else: break print(j) 内嵌代码:Use the printf() function. 添加水平线必须在行首插入三个以上”-“ : 缩进:&#160;&#160;&#160;&#160;&#160;&#160;&#160;缩进2个字符(偶尔不准确)&#8195;&#8195;缩进2个字符半方大的空白&ensp;或&#8194;。全方大的空白&emsp;或&#8195;。不断行的空白格&nbsp;或&#160;。 添加链接:本地或https://zerolei.com/ 黑体字海蓝,3号黑体字青色6号字体灰色10号字体]]></content>
       <categories>
         <category>hexo</category>
       </categories>
