@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="security," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="慢慢被锤骟,偶尔哼哧几句">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="https://zerolei.com/blog/archives/2017/08/index.html">
+<meta name="description" content="一、如何保存密码第一条规则：密码永远都要哈希保存。&amp;#8195;&amp;#8195;”哈希保存”就是对密码使用哈希算法，将哈希值保存进数据库。为了增加随机性，防止彩虹表这一类的工具，计算哈希的时候，每个用户都有一个不一样的盐值（salt），也会同时保存进数据库。">
+<meta name="keywords" content="security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="找回密码的功能设计规则">
+<meta property="og:url" content="https://zerolei.com/blog/2019/02/26/找回密码的功能设计规则/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="慢慢被锤骟,偶尔哼哧几句">
+<meta property="og:description" content="一、如何保存密码第一条规则：密码永远都要哈希保存。&amp;#8195;&amp;#8195;”哈希保存”就是对密码使用哈希算法，将哈希值保存进数据库。为了增加随机性，防止彩虹表这一类的工具，计算哈希的时候，每个用户都有一个不一样的盐值（salt），也会同时保存进数据库。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-26T04:48:03.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
-<meta name="twitter:description" content="慢慢被锤骟,偶尔哼哧几句">
+<meta name="twitter:title" content="找回密码的功能设计规则">
+<meta name="twitter:description" content="一、如何保存密码第一条规则：密码永远都要哈希保存。&amp;#8195;&amp;#8195;”哈希保存”就是对密码使用哈希算法，将哈希值保存进数据库。为了增加随机性，防止彩虹表这一类的工具，计算哈希的时候，每个用户都有一个不一样的盐值（salt），也会同时保存进数据库。">
 
 
 
@@ -120,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://zerolei.com/blog/archives/2017/08/"/>
+  <link rel="canonical" href="https://zerolei.com/blog/2019/02/26/找回密码的功能设计规则/"/>
 
 
 
@@ -135,7 +137,7 @@
         }
     })();
 </script>
-  <title>归档 | Blog</title>
+  <title>找回密码的功能设计规则 | Blog</title>
   
 
 
@@ -154,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,111 +294,215 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 16 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zerolei.com/blog/blog/2019/02/26/找回密码的功能设计规则/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zero lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/iAndBike.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2017/08/19/Make-Blog/" itemprop="url">
-              
-                <span itemprop="name">Make-Blog</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">找回密码的功能设计规则</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-19T00:42:46+08:00"
-              content="2017-08-19" >
-          08-19
-        </time>
-      </div>
+        <div class="post-meta">
+		  
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T12:25:09+08:00">
+                2019-02-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/design/" itemprop="url" rel="index">
+                    <span itemprop="name">design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  605
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/2017/08/18/简介Hexo/" itemprop="url">
-              
-                <span itemprop="name">简介Hexo</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-18T00:32:21+08:00"
-              content="2017-08-18" >
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <h2 id="一、如何保存密码"><a href="#一、如何保存密码" class="headerlink" title="一、如何保存密码"></a>一、如何保存密码</h2><h4 id="第一条规则：密码永远都要哈希保存。"><a href="#第一条规则：密码永远都要哈希保存。" class="headerlink" title="第一条规则：密码永远都要哈希保存。"></a>第一条规则：密码永远都要哈希保存。</h4><p>&#8195;&#8195;”哈希保存”就是对密码使用哈希算法，将哈希值保存进数据库。为了增加随机性，防止彩虹表这一类的工具，计算哈希的时候，每个用户都有一个不一样的盐值（salt），也会同时保存进数据库。<br><a id="more"></a><br>&#8195;&#8195;哈希是单向运算，无法还原，所以即使哈希值泄漏，一般来说，也不会暴露用户的原始密码。</p>
+<h2 id="二、密码重置"><a href="#二、密码重置" class="headerlink" title="二、密码重置"></a>二、密码重置</h2><p>&#8195;&#8195;如果密码是哈希保存，用户一旦忘记密码，网站也无法知道原始密码是什么，只能让用户重置密码。</p>
+<h4 id="第二条规则：找回密码就是让用户重置密码。"><a href="#第二条规则：找回密码就是让用户重置密码。" class="headerlink" title="第二条规则：找回密码就是让用户重置密码。"></a>第二条规则：找回密码就是让用户重置密码。</h4><p>&#8195;&#8195;重置密码又有两种做法。有的网站先自动改成一个随机密码，然后再让用户登录后自己改掉。这样做的风险在于，你必须把随机密码告知用户，通过邮件或短信，这个过程中就有可能泄漏。</p>
+<h4 id="第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。"><a href="#第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。" class="headerlink" title="第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。"></a>第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。</h4><p>&#8195;&#8195;重置链接由于是明文传播，而且直接修改密码，所以必须有失效时间。一般来说，可以设成10分钟失效。</p>
+<h2 id="三、用户名还是邮件地址？"><a href="#三、用户名还是邮件地址？" class="headerlink" title="三、用户名还是邮件地址？"></a>三、用户名还是邮件地址？</h2><h4 id="第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。"><a href="#第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。" class="headerlink" title="第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。"></a>第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。</h4><p>&#8195;&#8195;这是因为如果提示了，数据库不包含某个邮件地址，就可能泄露用户的隐私，被钓鱼者利用。</p>
+<h4 id="第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。"><a href="#第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。" class="headerlink" title="第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。"></a>第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。</h4><h2 id="四、过滤用户"><a href="#四、过滤用户" class="headerlink" title="四、过滤用户"></a>四、过滤用户</h2><p>&#8195;&#8195;为了防止机器人攻击，进入重置密码之前，最好加上 CAPTCHA 识别。</p>
+<p>&#8195;&#8195;此外，还要防止一种情况：张三知道李四的邮箱，然后使用找回密码功能，让系统给李四发出重置密码的邮件。</p>
+<h4 id="第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用-2FA-验证，比如短信验证码。"><a href="#第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用-2FA-验证，比如短信验证码。" class="headerlink" title="第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用 2FA 验证，比如短信验证码。"></a>第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用 2FA 验证，比如短信验证码。</h4><p>&#8195;&#8195;最后，不要忘了记录 IP 地址，在邮件里面告诉用户，哪个 IP 地址在申请重置你的密码。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2019/02/password.html" target="_blank" rel="noopener">原文</a></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    zero lei
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zerolei.com/blog/2019/02/26/找回密码的功能设计规则/" title="找回密码的功能设计规则">https://zerolei.com/blog/2019/02/26/找回密码的功能设计规则/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/security/" rel="tag"><i class="fa fa-tag"></i> security</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/02/25/抓包分析HTTP通信细节/" rel="next" title="抓包分析HTTP通信细节">
+                <i class="fa fa-chevron-left"></i> 抓包分析HTTP通信细节
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -404,6 +510,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -424,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -530,6 +649,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、如何保存密码"><span class="nav-number">1.</span> <span class="nav-text">一、如何保存密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一条规则：密码永远都要哈希保存。"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一条规则：密码永远都要哈希保存。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、密码重置"><span class="nav-number">2.</span> <span class="nav-text">二、密码重置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二条规则：找回密码就是让用户重置密码。"><span class="nav-number">2.0.1.</span> <span class="nav-text">第二条规则：找回密码就是让用户重置密码。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。"><span class="nav-number">2.0.2.</span> <span class="nav-text">第三条规则：重置密码的时候，要给出一个链接，让用户到网页上自己修改密码。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、用户名还是邮件地址？"><span class="nav-number">3.</span> <span class="nav-text">三、用户名还是邮件地址？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。"><span class="nav-number">3.0.1.</span> <span class="nav-text">第四条规则：重置密码之前，如果用户提供了错误的邮件地址，不要提示他。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。"><span class="nav-number">3.0.2.</span> <span class="nav-text">第五条规则：重置密码的时候，识别用户最好依靠邮件地址，而不是用户名。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、过滤用户"><span class="nav-number">4.</span> <span class="nav-text">四、过滤用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用-2FA-验证，比如短信验证码。"><span class="nav-number">4.0.1.</span> <span class="nav-text">第六条规则：如果条件允许，重置密码之前，最好请用户回答一些个人问题，或者采用 2FA 验证，比如短信验证码。</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +814,10 @@
 
 
   
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
