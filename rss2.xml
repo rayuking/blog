@@ -44,23 +44,6 @@
     </item>
     
     <item>
-      <title>元宵记事</title>
-      <link>https://zerolei.com/blog/2019/02/19/%E5%85%83%E5%AE%B5%E8%AE%B0%E4%BA%8B/</link>
-      <guid>https://zerolei.com/blog/2019/02/19/%E5%85%83%E5%AE%B5%E8%AE%B0%E4%BA%8B/</guid>
-      <pubDate>Mon, 18 Feb 2019 17:50:00 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;:)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/2019/02/19/元宵记事/BingWallpaper.jpg&quot; alt=&quot;yuanxiao&quot;&gt;&lt;br&gt;&lt;/p&gt;
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>:)</p><p><img src="/blog/2019/02/19/元宵记事/BingWallpaper.jpg" alt="yuanxiao"><br><a id="more"></a></p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;又是一年元宵时,还记得第一回不在家过元宵是高三的时候,独自在教室听着外面虽然喧闹但却与我无关的烟花.当时万万没想到这已然打开了在外过元宵的序幕.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;转眼十余年过去,爸妈也从担忧我的学习转变为催促我成家立业,(中间还担心过我的工作,老误解我是修电脑的).<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;在茫茫上海,人自然是孤独的,好在近来电话中爸妈的笑声多了起来,因为我在谈一个女生,从一开始联系到现在刚好半个月,经历了一开始的手足无措,也慢慢有了一些的沟通,这可是很难得的,加油!<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;最后吐槽下自己,几个小时就憋出这几个字.<br><img src="/blog/2019/02/19/元宵记事/coverFace.jpg" alt="coverFace"></p>]]></content:encoded>
-      
-      <comments>https://zerolei.com/blog/2019/02/19/%E5%85%83%E5%AE%B5%E8%AE%B0%E4%BA%8B/#disqus_thread</comments>
-    </item>
-    
-    <item>
       <title>备份的基本原则及相关命令</title>
       <link>https://zerolei.com/blog/2018/07/04/%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</link>
       <guid>https://zerolei.com/blog/2018/07/04/%E5%A4%87%E4%BB%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</guid>
@@ -196,6 +179,28 @@
       <content:encoded><![CDATA[<p> :)</p><p><img src="/blog/2018/05/13/特殊的日子/mother.jpg" alt="mom"><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;感谢母亲在背后的默默支持!</p>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2018/05/13/%E7%89%B9%E6%AE%8A%E7%9A%84%E6%97%A5%E5%AD%90/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Hexo框架下Next主题优化</title>
+      <link>https://zerolei.com/blog/2018/05/10/Hexo%E6%A1%86%E6%9E%B6%E4%B8%8BNext%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</link>
+      <guid>https://zerolei.com/blog/2018/05/10/Hexo%E6%A1%86%E6%9E%B6%E4%B8%8BNext%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/</guid>
+      <pubDate>Thu, 10 May 2018 12:37:04 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;wangwlj已经总结的很好了  &lt;a href=&quot;https://zhuanlan.zhihu.com/p/33616481&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo搭建的GitHub博客之优化大全&lt;/a&gt; , 这里就切换中文,更改页脚,添加支持HTTPS补充三点&lt;/p&gt;
+&lt;h3 id=&quot;0x00-更改Next主题默认语言为中文-并不是常见的zh-CN&quot;&gt;&lt;a href=&quot;#0x00-更改Next主题默认语言为中文-并不是常见的zh-CN&quot; class=&quot;headerlink&quot; title=&quot;0x00 更改Next主题默认语言为中文,并不是常见的zh-CN&quot;&gt;&lt;/a&gt;0x00 更改Next主题默认语言为中文,并不是常见的zh-CN&lt;/h3&gt;&lt;p&gt;在文件&lt;code&gt;themes\next\_config.yml&lt;/code&gt;中&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;language: zh-Hans&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;0x01-更改页脚&quot;&gt;&lt;a href=&quot;#0x01-更改页脚&quot; class=&quot;headerlink&quot; title=&quot;0x01 更改页脚&quot;&gt;&lt;/a&gt;0x01 更改页脚&lt;/h3&gt;&lt;p&gt;原页脚:&lt;br&gt;&lt;img src=&quot;/blog/2018/05/10/Hexo框架下Next主题优化/old-page-foot.png&quot; alt=&quot;old-page-foot&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在文件&lt;code&gt;\themes\next\layout\_partials\footer.swig&lt;/code&gt;中&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;% &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; theme.footer.powered %&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;div class=&lt;span class=&quot;string&quot;&gt;&quot;powered-by&quot;&lt;/span&gt;&amp;gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;#&amp;#125;&amp;#123;&amp;#123; __(&#39;footer.powered&#39;, &#39;&amp;lt;a class=&quot;theme-link&quot; target=&quot;_blank&quot; href=&quot;https://hexo.io&quot;&amp;gt;Hexo&amp;lt;/a&amp;gt;&#39;) &amp;#125;&amp;#125;&amp;#123;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#&amp;#125;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改后的效果:&lt;img src=&quot;/blog/2018/05/10/Hexo框架下Next主题优化/new-page-foot.png&quot; alt=&quot;new-page-foot&quot;&gt;&lt;br&gt;详见&lt;a href=&quot;https://www.jianshu.com/p/4fbc57269f1b&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo-Next底部logo栏更改&lt;/a&gt;&lt;/p&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;wangwlj已经总结的很好了  <a href="https://zhuanlan.zhihu.com/p/33616481" target="_blank" rel="noopener">Hexo搭建的GitHub博客之优化大全</a> , 这里就切换中文,更改页脚,添加支持HTTPS补充三点</p><h3 id="0x00-更改Next主题默认语言为中文-并不是常见的zh-CN"><a href="#0x00-更改Next主题默认语言为中文-并不是常见的zh-CN" class="headerlink" title="0x00 更改Next主题默认语言为中文,并不是常见的zh-CN"></a>0x00 更改Next主题默认语言为中文,并不是常见的zh-CN</h3><p>在文件<code>themes\next\_config.yml</code>中</p><p><code>language: zh-Hans</code></p><h3 id="0x01-更改页脚"><a href="#0x01-更改页脚" class="headerlink" title="0x01 更改页脚"></a>0x01 更改页脚</h3><p>原页脚:<br><img src="/blog/2018/05/10/Hexo框架下Next主题优化/old-page-foot.png" alt="old-page-foot"></p><p>在文件<code>\themes\next\layout\_partials\footer.swig</code>中</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.footer.powered %&#125;</span><br><span class="line">  &lt;div class=<span class="string">"powered-by"</span>&gt;&#123;<span class="comment">#</span></span><br><span class="line">  <span class="comment">#&#125;&#123;&#123; __('footer.powered', '&lt;a class="theme-link" target="_blank" href="https://hexo.io"&gt;Hexo&lt;/a&gt;') &#125;&#125;&#123;#</span></span><br><span class="line"><span class="comment">#&#125;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure><p>修改后的效果:<img src="/blog/2018/05/10/Hexo框架下Next主题优化/new-page-foot.png" alt="new-page-foot"><br>详见<a href="https://www.jianshu.com/p/4fbc57269f1b" target="_blank" rel="noopener">Hexo-Next底部logo栏更改</a></p><a id="more"></a><h3 id="0x02-给自定义域名添加支持-HTTPS"><a href="#0x02-给自定义域名添加支持-HTTPS" class="headerlink" title="0x02 给自定义域名添加支持 HTTPS"></a>0x02 给自定义域名添加支持 HTTPS</h3><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;简单来说，除了 HTTPS 自身带来的加密、防劫持等特性外，Github 官方基于 HTTPS 配合 CND，使得网站的加载速度更快，还能提供额外的防御 DDoS 攻击的保护。<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;GitHub Pages Blog 原文：<a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/" target="_blank" rel="noopener">Custom domains on GitHub Pages gain support for HTTPS</a></p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;未绑自定义人域名之前只需要到setting页勾选<code>enforce HTTPS</code>之后再绑定域名即可;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但是因为之前已经开启了自定义域名， <code>enforce HTTPS</code> 无法勾选且怎么办？如图<br><img src="/blog/2018/05/10/Hexo框架下Next主题优化/before_clean_full_save.png" alt="before_clean_full_save">需要</p><ol><li>把 Custom domain 中的值清空，并点击 Save 进行保存；</li><li>在 Custom domain 中的填入之前清空的值，我这里是 zerolei.com ，填入后点击保存；</li><li>尝试在浏览器里主动访问 <a href="https://zerolei.com">https://zerolei.com</a> ，地址要根据自己的情况，注意协议类型是 https，正确情况下是能正常访问的；</li><li>刷新项目设置页，如果 enforce HTTPS 可勾选，勾选即可；</li><li>如果 enforce HTTPS 不可勾选，并且提示 Not yet available for your site because the certificate has not finished being issued”如图<br><img src="/blog/2018/05/10/Hexo框架下Next主题优化/clean_full_save.png" alt="clean_full_save"> 说明证书尚未申请完成，等待一天即可。</li></ol>]]></content:encoded>
+      
+      <comments>https://zerolei.com/blog/2018/05/10/Hexo%E6%A1%86%E6%9E%B6%E4%B8%8BNext%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96/#disqus_thread</comments>
     </item>
     
   </channel>
