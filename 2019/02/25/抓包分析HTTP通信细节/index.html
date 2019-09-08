@@ -87,11 +87,11 @@
 <meta property="og:url" content="https://zerolei.com/blog/2019/02/25/抓包分析HTTP通信细节/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://zerolei.com/blog/2019/02/25/抓包分析HTTP通信细节/BingWallpaper.jpg">
-<meta property="og:updated_time" content="2019-05-15T15:41:43.823Z">
+<meta property="og:image" content="https://zerolei.com/blog/2019/02/25/抓包分析HTTP通信细节/抓取报文后隔指定的时间保存一次.png">
+<meta property="og:updated_time" content="2019-09-08T16:03:32.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抓包分析HTTP通信细节">
-<meta name="twitter:image" content="https://zerolei.com/blog/2019/02/25/抓包分析HTTP通信细节/BingWallpaper.jpg">
+<meta name="twitter:image" content="https://zerolei.com/blog/2019/02/25/抓包分析HTTP通信细节/抓取报文后隔指定的时间保存一次.png">
 
 
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  21
+                  107
                 </span>
               
 
@@ -427,7 +427,9 @@
       
 
       
-        <p><img src="/blog/2019/02/25/抓包分析HTTP通信细节/BingWallpaper.jpg" alt="yuanxiao"><br><a id="more"></a><br>&#8195;&#8195;用wireshark和tcpdump来分析TCP的“三次握手，四次挥手”，非常好用。<br>待续</p>
+        <p><img src="/blog/2019/02/25/抓包分析HTTP通信细节/抓取报文后隔指定的时间保存一次.png" alt="tcpdump"><br><a id="more"></a><br>&#8195;&#8195;1. 抓取报文后隔指定的时间保存一次：<br>tcpdump -i eth3 -s0 -G 60 -Z root -w %Y_%m%d_%H%M_%S.pcap<br>这里解释下-G选项 后面接时间 单位为秒 本例中的时间为60秒</p>
+<p>&#8195;&#8195;2. 抓取报文后达到指定的大小保存一次；<br>tcpdump -i eth3 -s0 -C 1 -Z root -w jiangsuyinhang.pcap。</p>
+<p>&#8195;&#8195;用wireshark和tcpdump来分析TCP的“三次握手，四次挥手”，非常好用。<br>待续</p>
 
       
     </div>
@@ -560,7 +562,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +573,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/blog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -582,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/blog/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -674,7 +676,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.0k</span>
+    <span title="Site words total count">5.1k</span>
   
 </div>
 
