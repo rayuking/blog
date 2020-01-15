@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  176
+                  464
                 </span>
               
 
@@ -430,8 +430,12 @@
 
       
         
-          <p>Elasticsearch常应用于企业大数据、大规模日志存储分析;<br>在我的应用场景中Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开:</p>
-<h2 id="一、健康度检查"><a href="#一、健康度检查" class="headerlink" title="一、健康度检查"></a>一、健康度检查</h2>
+          <p>Elasticsearch常应用于企业大数据、大规模日志存储分析;<br>在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开:</p>
+<h2 id="一、健康度检查"><a href="#一、健康度检查" class="headerlink" title="一、健康度检查"></a>一、健康度检查</h2><p>可以在kibana的Dev Tool执行如下命令:</p>
+<blockquote>
+<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/health?v</p>
+</blockquote>
+<p>获取当前elasticsearch的健康状态<br><img src="/blog/2020/01/14/elasticsearch维护中常遇到的问题/health.png" alt="health"><br>status:集群状态,分green,yellow和red.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2020/01/14/elasticsearch维护中常遇到的问题/#more" rel="contents">
@@ -2177,7 +2181,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.3k</span>
+    <span title="Site words total count">5.6k</span>
   
 </div>
 
