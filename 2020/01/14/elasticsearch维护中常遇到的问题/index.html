@@ -81,22 +81,22 @@
 
 
 
-<meta name="description" content="Elasticsearch常应用于企业大数据、大规模日志存储分析;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开: 一、健康度检查可以在kibana的Dev Tool执行如下命令:  &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;GET">
+<meta name="description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;Elasticsearch常应用于企业大数据、大规模日志存储分析;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,在维护过程中有些注意的事项,下面">
 <meta name="keywords" content="linux,java,elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="elasticsearch维护中常遇到的问题">
 <meta property="og:url" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Elasticsearch常应用于企业大数据、大规模日志存储分析;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开: 一、健康度检查可以在kibana的Dev Tool执行如下命令:  &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;GET">
+<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;Elasticsearch常应用于企业大数据、大规模日志存储分析;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,在维护过程中有些注意的事项,下面">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/health.png">
 <meta property="og:image" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/ulimit-a.jpg">
 <meta property="og:image" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/limits.conf.jpg">
 <meta property="og:image" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/cat-indices.jpg">
-<meta property="og:updated_time" content="2020-01-15T16:32:07.950Z">
+<meta property="og:updated_time" content="2020-05-15T23:36:19.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="elasticsearch维护中常遇到的问题">
-<meta name="twitter:description" content="Elasticsearch常应用于企业大数据、大规模日志存储分析;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开: 一、健康度检查可以在kibana的Dev Tool执行如下命令:  &amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;GET">
+<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;Elasticsearch常应用于企业大数据、大规模日志存储分析;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,在维护过程中有些注意的事项,下面">
 <meta name="twitter:image" content="https://zerolei.com/blog/2020/01/14/elasticsearch维护中常遇到的问题/health.png">
 
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  464
+                  468
                 </span>
               
 
@@ -433,7 +433,7 @@
       
 
       
-        <p>Elasticsearch常应用于企业大数据、大规模日志存储分析;<br>在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开:</p>
+        <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Elasticsearch常应用于企业大数据、大规模日志存储分析;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,在维护过程中有些注意的事项,下面从4个方面展开:</p>
 <h2 id="一、健康度检查"><a href="#一、健康度检查" class="headerlink" title="一、健康度检查"></a>一、健康度检查</h2><p>可以在kibana的Dev Tool执行如下命令:</p>
 <blockquote>
 <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/health?v</p>
@@ -594,7 +594,7 @@
               
                 <a href="/blog/archives">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -724,7 +724,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.0k</span>
+    <span title="Site words total count">6.4k</span>
   
 </div>
 

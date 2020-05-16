@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[elasticsearch维护中常遇到的问题-续]]></title>
+    <url>%2Fblog%2F2020%2F05%2F15%2Felasticsearch%E7%BB%B4%E6%8A%A4%E4%B8%AD%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E7%BB%AD%2F</url>
+    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重: cat /proc/sys/vm/swappiness swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:123456789Step1. root 用户临时关闭swapoff -asysctl vm.swappiness=0 Step2. 修改 /etc/fstab，注释掉 swap 这行Step3. 修改 /etc/sysctl.conf，添加：vm.swappiness = 0Step4. 确认是否生效sysctl vm.swappiness &#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;&#160;&#160;&#160;&#160;&#160;&#160;&#160;更安全的做法是把swappiness设为1;这样可以通过swap使用率的变化来判定内存是否真的不够用可以通过cat /proc/[pid]/status 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。 窗外雨后初晨:]]></content>
+      <categories>
+        <category>operations</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>java</tag>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[二月随想]]></title>
     <url>%2Fblog%2F2020%2F03%2F03%2F%E4%BA%8C%E6%9C%88%E9%9A%8F%E6%83%B3%2F</url>
     <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;2月已过,疫情还在继续,越发显得个人像颗芦苇;疫情中,有些人事需要纪念:李文亮被央视新闻联播报道是传谣,结果被打脸,好在李医生有保险。 &#160;&#160;&#160;&#160;&#160;&#160;&#160;个人在2019五一劳动节时坐火车遭遇泥石流,当时没想到返程,却在衢州火车站待了一夜;PS:习惯了火车最多晚点,不会缺席,目的已不可达,没想到及时返程; &#160;&#160;&#160;&#160;&#160;&#160;&#160;Thing that seem obvious are not obvious.显然的事并不容易被人发现,人们都拘于固有思维,例如给箱子装上轮子是1972年才有的事。 &#160;&#160;&#160;&#160;&#160;&#160;&#160;最后转一首朋友的骚诗:秀似山时雾隐隐， 眸星沉霜点点萤。 卿笑再忧红尘浅， 染尽烟火在人间。少年已成人，忘却了远方的诗和海，梦中偶然惊醒的风，只是当年的田野不在。]]></content>
@@ -14,7 +28,7 @@
   <entry>
     <title><![CDATA[elasticsearch维护中常遇到的问题]]></title>
     <url>%2Fblog%2F2020%2F01%2F14%2Felasticsearch%E7%BB%B4%E6%8A%A4%E4%B8%AD%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[Elasticsearch常应用于企业大数据、大规模日志存储分析;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,日常肯定是要维护的,下面从4个方面展开: 一、健康度检查可以在kibana的Dev Tool执行如下命令: &#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/health?v 获取当前elasticsearch的健康状态status:集群状态,分green,yellow和red. 二、对应的JVM 参数&#8195;&#8195;因为elasticsearch是使用Java编写的,其运行在 JVM 上，因此 JVM 参数设置对于 elasticsearch 集群的重要性不言而喻。。 1.堆的容量的设置&#8195;&#8195;对应的jvm.options中的堆默认只有1G,对于业务环境过小,这里按服务器的内存一半以下分配给elasticsearch(最好低于32G以便利用java的内存指针压缩技术). 2.增大每个进程最大可使用的文件描述符数量&#8195;&#8195;可以使用ulimit -a查看,在centos中默认只有1024,这里已改为65535 三、数据的导出&#8195;&#8195;业务环境配套的kibana没有report功能,还好有对应的python包,可以实现,demo如下:12345678910111213141516#! /usr/bin/env python# -*- coding: utf-8 -*-from elasticsearch import Elasticsearches = Elasticsearch("http://127.0.0.1/")body = &#123;"query":&#123;"term":&#123;"host":"centos7.3"&#125;&#125;&#125;f = open("/tmp/es.txt","a+")query = es.search(index = "messages-2020.01.14",body = body, scroll = "5m", size = 100) #size是查询到的数据上限条数result = query['hits']['hits']print(query['hits']['total']) #匹配到的总数print (len(result)) #为size的值for j in result: #print (j["_source"]) f.write(str(j["_source"]) + "\n")f.close() 四、磁盘容量的维护(索引的删除)&#8195;&#8195;可以在kibana的Dev Tool执行如下命令,查看每个索引的大小,以此判断删除索引释放空间或者加磁盘: &#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/indices?v]]></content>
+    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;Elasticsearch常应用于企业大数据、大规模日志存储分析;&#160;&#160;&#160;&#160;&#160;&#160;&#160;在我的应用场景中,Elasticsearch存储几百台防火墙,负载均衡设备的syslog,数据量每个月都在提升,年前已突破每月3百G,在维护过程中有些注意的事项,下面从4个方面展开: 一、健康度检查可以在kibana的Dev Tool执行如下命令: &#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/health?v 获取当前elasticsearch的健康状态status:集群状态,分green,yellow和red. 二、对应的JVM 参数&#8195;&#8195;因为elasticsearch是使用Java编写的,其运行在 JVM 上，因此 JVM 参数设置对于 elasticsearch 集群的重要性不言而喻。。 1.堆的容量的设置&#8195;&#8195;对应的jvm.options中的堆默认只有1G,对于业务环境过小,这里按服务器的内存一半以下分配给elasticsearch(最好低于32G以便利用java的内存指针压缩技术). 2.增大每个进程最大可使用的文件描述符数量&#8195;&#8195;可以使用ulimit -a查看,在centos中默认只有1024,这里已改为65535 三、数据的导出&#8195;&#8195;业务环境配套的kibana没有report功能,还好有对应的python包,可以实现,demo如下:12345678910111213141516#! /usr/bin/env python# -*- coding: utf-8 -*-from elasticsearch import Elasticsearches = Elasticsearch("http://127.0.0.1/")body = &#123;"query":&#123;"term":&#123;"host":"centos7.3"&#125;&#125;&#125;f = open("/tmp/es.txt","a+")query = es.search(index = "messages-2020.01.14",body = body, scroll = "5m", size = 100) #size是查询到的数据上限条数result = query['hits']['hits']print(query['hits']['total']) #匹配到的总数print (len(result)) #为size的值for j in result: #print (j["_source"]) f.write(str(j["_source"]) + "\n")f.close() 四、磁盘容量的维护(索引的删除)&#8195;&#8195;可以在kibana的Dev Tool执行如下命令,查看每个索引的大小,以此判断删除索引释放空间或者加磁盘: &#160;&#160;&#160;&#160;&#160;&#160;&#160;GET _cat/indices?v]]></content>
       <categories>
         <category>operations</category>
         <category>java</category>
