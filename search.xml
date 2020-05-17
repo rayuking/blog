@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[elasticsearch维护中常遇到的问题-续]]></title>
     <url>%2Fblog%2F2020%2F05%2F15%2Felasticsearch%E7%BB%B4%E6%8A%A4%E4%B8%AD%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E7%BB%AD%2F</url>
-    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重: cat /proc/sys/vm/swappiness swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:123456789Step1. root 用户临时关闭swapoff -asysctl vm.swappiness=0 Step2. 修改 /etc/fstab，注释掉 swap 这行Step3. 修改 /etc/sysctl.conf，添加：vm.swappiness = 0Step4. 确认是否生效sysctl vm.swappiness &#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;&#160;&#160;&#160;&#160;&#160;&#160;&#160;更安全的做法是把swappiness设为1;这样可以通过swap使用率的变化来判定内存是否真的不够用可以通过cat /proc/[pid]/status 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。 窗外雨后初晨:]]></content>
+    <content type="text"><![CDATA[&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重: cat /proc/sys/vm/swappiness swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:123456789Step1. root 用户临时关闭swapoff -asysctl vm.swappiness=0 Step2. 修改 /etc/fstab，注释掉 swap 这行Step3. 修改 /etc/sysctl.conf，添加：vm.swappiness = 0Step4. 确认是否生效sysctl vm.swappiness &#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;&#160;&#160;&#160;&#160;&#160;&#160;&#160;更安全的做法是把swappiness设为1;这样可以通过swap使用率的变化以及观测到elasticSearch的性能急剧下降,从而给你进一步调优和诊断问题的时间,来判定内存是否真的不够用;可以通过cat /proc/[pid]/status 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。 窗外雨后初晨:]]></content>
       <categories>
         <category>operations</category>
         <category>java</category>
@@ -23,6 +23,18 @@
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Kafka快速入门与实战]]></title>
+    <url>%2Fblog%2F2020%2F01%2F17%2FKafka%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98%2F</url>
+    <content type="text"><![CDATA[get Kafka 证书一张 :)]]></content>
+      <categories>
+        <category>kafka</category>
+        <category>emotion</category>
+      </categories>
+      <tags>
+        <tag>kafka</tag>
       </tags>
   </entry>
   <entry>

@@ -8,7 +8,7 @@
     <atom:link href="/blog/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>慢慢被锤骟,偶尔哼哧几句</description>
-    <pubDate>Fri, 15 May 2020 23:59:12 GMT</pubDate>
+    <pubDate>Sun, 17 May 2020 17:30:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -26,7 +26,7 @@
       
       </description>
       
-      <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p><blockquote><p>cat /proc/sys/vm/swappiness </p></blockquote><p>swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br><a id="more"></a><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Step1. root 用户临时关闭</span><br><span class="line">swapoff -a</span><br><span class="line">sysctl vm.swappiness=0</span><br><span class="line"> </span><br><span class="line">Step2. 修改 /etc/fstab，注释掉 swap 这行</span><br><span class="line">Step3. 修改 /etc/sysctl.conf，添加：</span><br><span class="line">vm.swappiness = 0</span><br><span class="line">Step4. 确认是否生效</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure></p><p>&#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="red" size="3"><strong>更安全的做法是把swappiness设为1;</strong></font><br>这样可以通过swap使用率的变化来判定内存是否真的不够用<br>可以通过<code>cat /proc/[pid]/status</code> 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。</p><p><center>窗外雨后初晨:</center><img src="/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/morning-after-a-rain.jpg" alt="morning-after-a-rain"></p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p><blockquote><p>cat /proc/sys/vm/swappiness </p></blockquote><p>swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br><a id="more"></a><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Step1. root 用户临时关闭</span><br><span class="line">swapoff -a</span><br><span class="line">sysctl vm.swappiness=0</span><br><span class="line"> </span><br><span class="line">Step2. 修改 /etc/fstab，注释掉 swap 这行</span><br><span class="line">Step3. 修改 /etc/sysctl.conf，添加：</span><br><span class="line">vm.swappiness = 0</span><br><span class="line">Step4. 确认是否生效</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure></p><p>&#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="red" size="3"><strong>更安全的做法是把swappiness设为1;</strong></font><br>这样可以通过swap使用率的变化以及观测到elasticSearch的性能急剧下降,从而给你进一步调优和诊断问题的时间,来判定内存是否真的不够用;<br>可以通过<code>cat /proc/[pid]/status</code> 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。</p><p><center>窗外雨后初晨:</center><img src="/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/morning-after-a-rain.jpg" alt="morning-after-a-rain"></p>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2020/05/15/elasticsearch%E7%BB%B4%E6%8A%A4%E4%B8%AD%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98-%E7%BB%AD/#disqus_thread</comments>
     </item>
@@ -48,6 +48,25 @@
       <content:encoded><![CDATA[<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;2月已过,疫情还在继续,越发显得个人像颗芦苇;<br>疫情中,有些人事需要纪念:李文亮被央视新闻联播报道是传谣,结果被打脸,好在李医生有保险。</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;个人在2019五一劳动节时坐火车遭遇泥石流,当时没想到返程,却在衢州火车站待了一夜;<br>PS:习惯了火车最多晚点,不会缺席,目的已不可达,没想到及时返程;</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Thing that seem obvious are not obvious.<br>显然的事并不容易被人发现,人们都拘于固有思维,例如给箱子装上轮子是1972年才有的事。</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;最后转一首朋友的骚诗:<center>秀似山时雾隐隐，</center>    <center>眸星沉霜点点萤。</center>   <center>卿笑再忧红尘浅，</center>  <center>染尽烟火在人间。</center><br><a id="more"></a><br><img src="/blog/2020/03/03/二月随想/afterwards.jpg" alt="后来"><br>少年已成人，忘却了远方的诗和海，梦中偶然惊醒的风，只是当年的田野不在。</p>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2020/03/03/%E4%BA%8C%E6%9C%88%E9%9A%8F%E6%83%B3/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Kafka快速入门与实战</title>
+      <link>https://zerolei.com/blog/2020/01/17/Kafka%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</link>
+      <guid>https://zerolei.com/blog/2020/01/17/Kafka%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</guid>
+      <pubDate>Fri, 17 Jan 2020 13:35:02 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;&lt;center size=&quot;5&quot;&gt;&lt;strong&gt;get Kafka 证书一张 :)&lt;/strong&gt;&lt;/center&gt;&lt;br&gt;&lt;img src=&quot;/blog/2020/01/17/Kafka快速入门与实战/Kafka.png&quot; alt=&quot;morning-after-a-r
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p><center size="5"><strong>get Kafka 证书一张 :)</strong></center><br><img src="/blog/2020/01/17/Kafka快速入门与实战/Kafka.png" alt="morning-after-a-rain"></p>]]></content:encoded>
+      
+      <comments>https://zerolei.com/blog/2020/01/17/Kafka%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/#disqus_thread</comments>
     </item>
     
     <item>
@@ -169,28 +188,6 @@
       <content:encoded><![CDATA[<p>发现证书过期:</p><p><img src="/blog/2018/06/16/git page的证书过期后无法自动续签/certificate_expired.png" alt="certificate_expired"><br><a id="more"></a><br>在V2EX查到:</p><blockquote><p>之前你的域名解析 a 记录 ip 太老 需要换成 github 新的 ip 才行 然后清域名重置下 在重新绑定;</p></blockquote><p>但我在DNSPOD中没有设置A记录,只设置了CNAME记录,所以这就令人头秃了.</p><p>然而过了一天,又可以了….</p><p><img src="/blog/2018/06/16/git page的证书过期后无法自动续签/certificate_ok.png" alt="certificate_ok"></p><p>在此过程中倒是发现:<strong>使用带有<code>http*</code>的标题会导致图片不能被链接进博客</strong></p>]]></content:encoded>
       
       <comments>https://zerolei.com/blog/2018/06/16/git%20page%E7%9A%84%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F%E5%90%8E%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>记一次解压破解实践</title>
-      <link>https://zerolei.com/blog/2018/06/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5/</link>
-      <guid>https://zerolei.com/blog/2018/06/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5/</guid>
-      <pubDate>Mon, 11 Jun 2018 16:32:44 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码…..&lt;/p&gt;
-&lt;h3 id=&quot;首先是找个现成工具&quot;&gt;&lt;a href=&quot;#首先是找个现成工具&quot; class=&quot;headerlink&quot; title=&quot;首先是找个现成工具&quot;&gt;&lt;/a&gt;首先是找个现成工具&lt;/h3&gt;&lt;p&gt;试用下来发现:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次&lt;/li&gt;
-&lt;li&gt;使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码&lt;/li&gt;
-&lt;li&gt;不支持外部社工字典&lt;/li&gt;
-&lt;li&gt;只支持rar格式&lt;/li&gt;&lt;/ol&gt;
-      
-      </description>
-      
-      <content:encoded><![CDATA[<p>遇到这样的场景:需要打开加密过的压缩文件,但是又忘了密码…..</p><h3 id="首先是找个现成工具"><a href="#首先是找个现成工具" class="headerlink" title="首先是找个现成工具"></a>首先是找个现成工具</h3><p>试用下来发现:</p><ol><li>可以从小写,大写字母,数组,特殊字符和自定义字符之间组合暴力破解,一分钟大概可以尝试1万次</li><li>使用一个密码为1234的压缩包测试,发现破解成功后需要注册才能复制破解出来的密码</li><li>不支持外部社工字典</li><li>只支持rar格式<a id="more"></a><img src="/blog/2018/06/12/记一次解压破解实践/现成工具的局限.png" alt="现成工具的局限"></li></ol><p>针对2到4,3条缺陷,构思了下面的简易脚本</p><h3 id="测试7z指令"><a href="#测试7z指令" class="headerlink" title="测试7z指令"></a>测试7z指令</h3><p><code>7z x encryption.rar -p12345 -y</code><br><img src="/blog/2018/06/12/记一次解压破解实践/7z_command.png" alt="7z_command"></p><h3 id="使用python调用外部的7z指令"><a href="#使用python调用外部的7z指令" class="headerlink" title="使用python调用外部的7z指令"></a>使用python调用外部的7z指令</h3><p>根据返回值判断是否成功;<br>下面是关键代码</p><pre><code>import osret=1for j in range(100001):            # print(ret)    if ret &gt; 0:        ret=os.system(&apos;7z x &quot;C:\\Users\\king\\Desktop\\test\\encryption.7z&quot; -p%s -y&apos; % (j))            else:        break    print(j)</code></pre><p>用来测试一个密码为12345的压缩包:<br><img src="/blog/2018/06/12/记一次解压破解实践/破解结果及缺点.png" alt="破解结果及缺点"><br>缺点:慢,一分钟大概可以尝试2千次<br>优点:</p><ol><li>可支持外部社工字典</li><li>支持多种压缩格式</li></ol>]]></content:encoded>
-      
-      <comments>https://zerolei.com/blog/2018/06/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%8E%8B%E7%A0%B4%E8%A7%A3%E5%AE%9E%E8%B7%B5/#disqus_thread</comments>
     </item>
     
   </channel>
