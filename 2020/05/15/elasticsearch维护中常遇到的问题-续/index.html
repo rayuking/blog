@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&amp;#160;&amp;#160;&amp;#160;&amp;#160;">
+<meta name="description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC(Full Garbage Collection全堆范围的垃圾回收)的问题.&amp;#8195;&amp;#8195;现象:在30多天的时间范围内swap使用率慢慢攀升,当使用率达到触发FGC时,elasticsearch的性能急剧下降,处于勉强可用的状态, 说明">
 <meta name="keywords" content="linux,java,elasticsearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="elasticsearch维护中常遇到的问题-续">
 <meta property="og:url" content="https://zerolei.com/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&amp;#160;&amp;#160;&amp;#160;&amp;#160;">
+<meta property="og:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC(Full Garbage Collection全堆范围的垃圾回收)的问题.&amp;#8195;&amp;#8195;现象:在30多天的时间范围内swap使用率慢慢攀升,当使用率达到触发FGC时,elasticsearch的性能急剧下降,处于勉强可用的状态, 说明">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zerolei.com/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/morning-after-a-rain.jpg">
-<meta property="og:updated_time" content="2020-05-17T17:30:47.115Z">
+<meta property="og:updated_time" content="2020-05-18T14:01:23.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="elasticsearch维护中常遇到的问题-续">
-<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.&amp;#160;&amp;#160;&amp;#160;&amp;#160;">
+<meta name="twitter:description" content="&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;目前遇到了elasticsearch间隔30到40天就会进行FGC(Full Garbage Collection全堆范围的垃圾回收)的问题.&amp;#8195;&amp;#8195;现象:在30多天的时间范围内swap使用率慢慢攀升,当使用率达到触发FGC时,elasticsearch的性能急剧下降,处于勉强可用的状态, 说明">
 <meta name="twitter:image" content="https://zerolei.com/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/morning-after-a-rain.jpg">
 
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  416
+                  443
                 </span>
               
 
@@ -430,12 +430,12 @@
       
 
       
-        <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p>
+        <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC(Full Garbage Collection全堆范围的垃圾回收)的问题.<br>&#8195;&#8195;现象:在30多天的时间范围内swap使用率慢慢攀升,当使用率达到触发FGC时,elasticsearch的性能急剧下降,处于勉强可用的状态, 说明jvm平时就使用到了swap,然而内存commit率并不高,可以调低swap的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p>
 <blockquote>
 <p>cat /proc/sys/vm/swappiness </p>
 </blockquote>
-<p>swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br><a id="more"></a><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Step1. root 用户临时关闭</span><br><span class="line">swapoff -a</span><br><span class="line">sysctl vm.swappiness=0</span><br><span class="line"> </span><br><span class="line">Step2. 修改 /etc/fstab，注释掉 swap 这行</span><br><span class="line">Step3. 修改 /etc/sysctl.conf，添加：</span><br><span class="line">vm.swappiness = 0</span><br><span class="line">Step4. 确认是否生效</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure></p>
-<p>&#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="red" size="3"><strong>更安全的做法是把swappiness设为1;</strong></font><br>这样可以通过swap使用率的变化以及观测到elasticSearch的性能急剧下降,从而给你进一步调优和诊断问题的时间,来判定内存是否真的不够用;<br>可以通过<code>cat /proc/[pid]/status</code> 查看某个进程使用Swap的大小， 再dstat里看看监控page in/out发生的时间。</p>
+<p>&#8195;&#8195;swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br><a id="more"></a><br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查到的资料都是下面这些做法:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Step1. root 用户临时关闭</span><br><span class="line">swapoff -a</span><br><span class="line">sysctl vm.swappiness=0</span><br><span class="line"> </span><br><span class="line">Step2. 修改 /etc/fstab，注释掉 swap 这行</span><br><span class="line">Step3. 修改 /etc/sysctl.conf，添加：</span><br><span class="line">vm.swappiness = 0</span><br><span class="line">Step4. 确认是否生效</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure></p>
+<p>&#8195;&#8195;但这种做法有种风险,当真的内存不够用时,可能会在你没发现任何征兆的情况下,发生OOM Killer,使有的进程直接被系统杀掉以释放内存;<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<font color="red" size="3"><strong>更安全的做法是把swappiness设为1;</strong></font> 这样可以通过swap使用率的变化以及观测到elasticSearch的性能急剧下降,从而给你进一步调优和诊断问题的时间,来判定内存是否真的不够用;<br>&#8195;&#8195;可以通过<code>cat /proc/[pid]/status</code> 查看某个进程使用Swap的大小， 再用dstat指令监控page in/out发生的时间。</p>
 <p><center>窗外雨后初晨:</center><img src="/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/morning-after-a-rain.jpg" alt="morning-after-a-rain"></p>
 
       

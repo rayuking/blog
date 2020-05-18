@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  416
+                  443
                 </span>
               
 
@@ -430,11 +430,11 @@
 
       
         
-          <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC的问题,现象:elasticsearch的性能急剧下降,处于勉强可用的状态,swap使用率则急剧的由高到低. 说明jvm平时就使用到了sawp,然而内存commit率并不高,可以调低sawp的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p>
+          <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前遇到了elasticsearch间隔30到40天就会进行FGC(Full Garbage Collection全堆范围的垃圾回收)的问题.<br>&#8195;&#8195;现象:在30多天的时间范围内swap使用率慢慢攀升,当使用率达到触发FGC时,elasticsearch的性能急剧下降,处于勉强可用的状态, 说明jvm平时就使用到了swap,然而内存commit率并不高,可以调低swap的使用权重.<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;查询swap默认权重:</p>
 <blockquote>
 <p>cat /proc/sys/vm/swappiness </p>
 </blockquote>
-<p>swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br></p>
+<p>&#8195;&#8195;swappiness，Linux内核参数，控制换出运行时内存的相对权重。swappiness参数值可设置范围在0到100之间。 低参数值会让内核尽量少用交换，更高参数值会使内核更多的去使用交换空间。默认值为60（参考网络资料：当剩余物理内存低于40%（40=100-60）时，开始使用交换空间）。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/blog/2020/05/15/elasticsearch维护中常遇到的问题-续/#more" rel="contents">
@@ -601,7 +601,7 @@
       
         
           <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;2月已过,疫情还在继续,越发显得个人像颗芦苇;<br>疫情中,有些人事需要纪念:李文亮被央视新闻联播报道是传谣,结果被打脸,好在李医生有保险。</p>
-<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;个人在2019五一劳动节时坐火车遭遇泥石流,当时没想到返程,却在衢州火车站待了一夜;<br>PS:习惯了火车最多晚点,不会缺席,目的已不可达,没想到及时返程;</p>
+<p>&#8195;&#8195;个人在2019五一劳动节时坐火车遭遇泥石流,当时没想到返程,却在衢州火车站待了一夜;<br>PS:习惯了火车最多晚点,不会缺席,目的已不可达,没想到及时返程;</p>
 <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Thing that seem obvious are not obvious.<br>显然的事并不容易被人发现,人们都拘于固有思维,例如给箱子装上轮子是1972年才有的事。</p>
 <p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;最后转一首朋友的骚诗:<center>秀似山时雾隐隐，</center>    <center>眸星沉霜点点萤。</center>   <center>卿笑再忧红尘浅，</center>  <center>染尽烟火在人间。</center><br></p>
           <!--noindex-->
@@ -781,7 +781,7 @@
       
         
           
-            <p><center size="5"><strong>get Kafka 证书一张 :)</strong></center><br><img src="/blog/2020/01/17/Kafka快速入门与实战/Kafka.png" alt="morning-after-a-rain"></p>
+            <h2 id="get-Kafka-证书一张"><a href="#get-Kafka-证书一张" class="headerlink" title="get Kafka 证书一张 :)"></a><center>get Kafka 证书一张 :)</center></h2><p><img src="/blog/2020/01/17/Kafka快速入门与实战/Kafka.png" alt="morning-after-a-rain"></p>
 
           
         
