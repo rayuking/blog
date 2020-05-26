@@ -222,7 +222,7 @@
     <url>%2Fblog%2F2017%2F08%2F19%2FMake-Blog%2F</url>
     <content type="text"><![CDATA[1. 先安装 nodejs 和 git 下载hexo123$ mkdir hexo #创建一个文件夹$ cd hexo$ npm install -g hexo-cli 2.使用hexo n在本地\source\_posts文件夹下新建了文章,撰写Markdown文档1$ hexo n "文章名称" 3. 用如下指令生成静态页面然后开启预览访问端口，在浏览器中打开 本地 查看页面12$ hexo generate$ hexo server 4. 创建github账号，新建库，名为: 你的用户名.github.io;下载部署工具hexo-deployer-git,git clone 用户名.github.io库的地址链接,配置_config.yml文件,然后hexo d部署上去12$ npm install hexo-deployer-git --save$ hexo deploy 5. 可以绑定个人域名，可到 DNSPOD 设置DNS解析,(dnspod免费版支持二级域名解析)只需要一条 @ cname 记录链接到 你的用户名.guthub.io 即可可参照详情 6. 需要在用户名.github.io库的settingz中开启page功能;并配置个性域名(会生成一个CNAME文件),内容就是你的域名CNAME文件内容,如:zerolei.com]]></content>
       <categories>
-        <category>meke blog</category>
+        <category>make blog</category>
       </categories>
       <tags>
         <tag>hexo</tag>
